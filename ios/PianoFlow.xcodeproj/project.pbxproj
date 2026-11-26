@@ -609,7 +609,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pianoflow.app.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PianoFlow.app/$(BUNDLE_EXECUTABLE_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PianoFlow.app/PianoFlow";
 			}; name = Debug; };
 		9ED4D0ACF83EAA02CDB16344 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -618,7 +618,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pianoflow.app.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PianoFlow.app/$(BUNDLE_EXECUTABLE_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PianoFlow.app/PianoFlow";
 			}; name = Release; };
 /* End XCBuildConfiguration section */
 
