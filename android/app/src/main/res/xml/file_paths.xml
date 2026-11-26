@@ -1,0 +1,4 @@
+<paths>
+    <cache-path name="shared_audio" path="audio/" />
+    <files-path name="recordings" path="recordings/" />
+</paths>

@@ -1,0 +1,65 @@
+name: Build iOS Unsigned IPA (Sideloadly)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'ios/**'
+      - '.github/workflows/ios-build.yml'
+  workflow_dispatch:
+
+jobs:
+  build-ios-ipa:
+    name: Build Unsigned IPA & Run Swift Tests
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: |
+          sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer 2>/dev/null || xcode-select -p
+          xcodebuild -version
+          swift --version
+
+      - name: Run SwiftPM Unit Tests (PianoFlowCore)
+        working-directory: ios
+        run: swift test
+
+      - name: Build PianoFlow.app (Release, Unsigned for Sideloadly)
+        working-directory: ios
+        run: |
+          xcodebuild \
+            -project PianoFlow.xcodeproj \
+            -scheme PianoFlow \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            clean build
+
+      - name: Package Unsigned .ipa (Payload/PianoFlow.app)
+        working-directory: ios
+        run: |
+          APP_PATH="build/Build/Products/Release-iphoneos/PianoFlow.app"
+          if [ ! -d "$APP_PATH" ]; then
+            echo "Error: PianoFlow.app not found at $APP_PATH"
+            exit 1
+          fi
+          mkdir -p ipa_out/Payload
+          cp -R "$APP_PATH" ipa_out/Payload/
+          cd ipa_out
+          zip -qry ../PianoFlow-unsigned.ipa Payload
+          ls -lh ../PianoFlow-unsigned.ipa
+
+      - name: Upload PianoFlow-unsigned.ipa Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PianoFlow-unsigned-ipa
+          path: ios/PianoFlow-unsigned.ipa
+          retention-days: 30

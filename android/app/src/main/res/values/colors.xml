@@ -1,0 +1,13 @@
+<resources>
+    <color name="primary">#7C4DFF</color>
+    <color name="primary_dark">#651FFF</color>
+    <color name="accent">#00E5FF</color>
+    <color name="background_dark">#0F111A</color>
+    <color name="surface_dark">#1A1D2E</color>
+    <color name="piano_white_key">#FFFFFF</color>
+    <color name="piano_white_key_pressed">#E2E8F0</color>
+    <color name="piano_black_key">#1E2028</color>
+    <color name="piano_black_key_pressed">#3F445A</color>
+    <color name="right_hand_color">#00E5FF</color>
+    <color name="left_hand_color">#FF4081</color>
+</resources>

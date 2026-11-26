@@ -1,0 +1,30 @@
+# Android / Gradle
+*.iml
+.gradle/
+android/.gradle/
+local.properties
+android/local.properties
+.idea/
+.kotlin/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+**/build/
+*.apk
+*.aab
+*.ap_
+
+# iOS / Xcode / Swift
+.DS_Store
+ios/.build/
+ios/DerivedData/
+ios/.swiftpm/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcuserstate
+*.ipa
+*.dSYM.zip
+*.dSYM
+xcuserdata/
+DerivedData/

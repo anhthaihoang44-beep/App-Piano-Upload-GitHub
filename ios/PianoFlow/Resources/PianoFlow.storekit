@@ -1,0 +1,113 @@
+{
+  "identifier" : "F1A8E342",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6700000001",
+    "_developerTeamID" : "TEAMID1234",
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21500001",
+      "localizations" : [
+
+      ],
+      "name" : "PianoFlow VIP",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6700000101",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "All 50+ songs unlocked & unlimited recording playback",
+              "displayName" : "Weekly VIP",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "pianoflow_weekly",
+          "recurringSubscriptionPeriod" : "P1W",
+          "referenceName" : "Weekly VIP",
+          "subscriptionGroupID" : "21500001",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "7.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6700000102",
+          "introductoryOffer" : {
+            "internalID" : "6700000201",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "All songs, master lessons, and high-fidelity WAV export",
+              "displayName" : "Monthly VIP",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "pianoflow_monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly VIP",
+          "subscriptionGroupID" : "21500001",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "39.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6700000103",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Best long-term value with all future songs and features",
+              "displayName" : "Yearly VIP",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "pianoflow_yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly VIP",
+          "subscriptionGroupID" : "21500001",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
