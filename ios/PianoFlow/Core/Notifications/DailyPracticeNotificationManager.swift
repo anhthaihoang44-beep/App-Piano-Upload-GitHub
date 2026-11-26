@@ -23,8 +23,8 @@ public enum DailyPracticeNotificationManager {
         center.removePendingNotificationRequests(withIdentifiers: [reminderIdentifier])
 
         let content = UNMutableNotificationContent()
-        content.title = NSLocalizedString("reminder_notification_title", comment: "")
-        content.body = NSLocalizedString("reminder_notification_body", comment: "")
+        content.title = L10n.tr("reminder_notification_title")
+        content.body = L10n.tr("reminder_notification_body")
         content.sound = .default
 
         var dateComponents = DateComponents()

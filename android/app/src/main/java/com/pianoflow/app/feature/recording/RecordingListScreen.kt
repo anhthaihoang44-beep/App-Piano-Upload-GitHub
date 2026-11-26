@@ -88,11 +88,11 @@ fun RecordingListScreen(
             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "audio/wav"
                 putExtra(Intent.EXTRA_STREAM, contentUri)
-                putExtra(Intent.EXTRA_SUBJECT, "PianoFlow Recording: ${recording.title}")
-                putExtra(Intent.EXTRA_TEXT, "Listen to my piano performance on PianoFlow! 🎹")
+                putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.recordings_share_subject, recording.title))
+                putExtra(Intent.EXTRA_TEXT, context.getString(R.string.recordings_share_text))
                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             }
-            context.startActivity(Intent.createChooser(shareIntent, "Share Piano Recording"))
+            context.startActivity(Intent.createChooser(shareIntent, context.getString(R.string.recordings_share_chooser)))
             exportingId = null
         }
     }
@@ -113,7 +113,7 @@ fun RecordingListScreen(
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = "Replay and share your piano performances",
+            text = stringResource(R.string.recordings_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = Color.Gray
         )
@@ -219,7 +219,7 @@ private fun RecordingCardItem(
                 )
                 Spacer(modifier = Modifier.height(2.dp))
                 Text(
-                    text = "$formattedDate  |  $durationFormatted  |  ${recording.noteCount} notes",
+                    text = stringResource(R.string.recordings_meta_line, formattedDate, durationFormatted, recording.noteCount),
                     style = MaterialTheme.typography.labelSmall,
                     color = Color.Gray
                 )

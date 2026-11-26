@@ -2,6 +2,7 @@ import SwiftUI
 
 public struct KeyboardScreen: View {
 
+    @Environment(\.locale) private var locale
     @ObservedObject var viewModel: KeyboardViewModel
     let onNavigateToDoubleKeyboard: () -> Void
     let onNavigateToTwoPlayer: () -> Void
@@ -71,7 +72,7 @@ public struct KeyboardScreen: View {
             }
             Button(L10n.tr("recordings_discard"), role: .cancel) {}
         } message: {
-            Text("\(recordingNoteCount) notes recorded (\(Int(recordingSaveDurationMs / 1000))s)")
+            Text(L10n.format("keyboard_notes_recorded", recordingNoteCount, Int(recordingSaveDurationMs / 1000)))
         }
     }
 
@@ -252,7 +253,7 @@ public struct KeyboardScreen: View {
             )
             .tint(PianoFlowColors.brandPrimary)
 
-            Button("OK") {
+            Button(L10n.tr("common_ok")) {
                 showVolumeSheet = false
             }
             .font(.headline)

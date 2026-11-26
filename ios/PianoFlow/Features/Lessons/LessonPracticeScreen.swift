@@ -51,7 +51,7 @@ public struct LessonPracticeScreen: View {
                 }
 
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(lesson.title)
+                    Text(L10n.tr(lesson.titleKey))
                         .font(.headline)
                         .foregroundColor(.white)
                     Text(L10n.tr(lesson.stageTitleKey))
@@ -66,23 +66,23 @@ public struct LessonPracticeScreen: View {
 
             // Instruction Card
             VStack(alignment: .leading, spacing: 10) {
-                Text("Instruction")
+                Text(L10n.tr("lessons_instruction_label"))
                     .font(.caption.bold())
                     .foregroundColor(PianoFlowColors.brandPrimary)
 
-                Text(lesson.instruction)
+                Text(L10n.tr(lesson.instructionKey))
                     .font(.subheadline)
                     .foregroundColor(.white)
 
                 let pitch = currentTargetMidi.flatMap { NotePitch.fromMidi($0) }
                 HStack {
-                    Text("Target Note: \(pitch?.nameEn ?? "Done!") (\(pitch?.nameSolfege ?? ""))")
+                    Text(L10n.format("lessons_target_note", pitch?.nameEn ?? L10n.tr("lessons_done_bang"), pitch?.nameSolfege ?? ""))
                         .font(.subheadline.bold())
                         .foregroundColor(PianoFlowColors.brandSecondary)
 
                     Spacer()
 
-                    Text("Step \(min(currentStepIndex, lesson.targetNotes.count)) / \(lesson.targetNotes.count)")
+                    Text(L10n.format("lessons_step_progress", min(currentStepIndex, lesson.targetNotes.count), lesson.targetNotes.count))
                         .font(.caption)
                         .foregroundColor(.gray)
                 }
@@ -160,7 +160,7 @@ public struct LessonPracticeScreen: View {
                 .font(.headline.bold())
                 .foregroundColor(PianoFlowColors.brandSecondary)
 
-            Button("Continue") {
+            Button(L10n.tr("common_continue")) {
                 isLessonFinished = false
                 onBack()
             }

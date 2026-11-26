@@ -54,6 +54,7 @@ import androidx.compose.ui.unit.sp
 import com.pianoflow.app.R
 import com.pianoflow.app.core.billing.BillingRepository
 import com.pianoflow.app.core.billing.SubscriptionPlan
+import com.pianoflow.app.core.util.LocaleHelper.findActivity
 import com.pianoflow.app.ui.theme.BackgroundDark
 import com.pianoflow.app.ui.theme.BrandPrimary
 import com.pianoflow.app.ui.theme.BrandSecondary
@@ -79,7 +80,7 @@ fun PaywallScreen(
     var isLoading by remember { mutableStateOf(false) }
 
     fun handleSubscribe() {
-        val activity = context as? Activity ?: return
+        val activity = context.findActivity() ?: return
         scope.launch {
             isLoading = true
             billingRepository.purchasePlan(activity, selectedPlanId)
@@ -293,9 +294,21 @@ private fun PlanCard(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Column {
+                val localizedTitle = when (plan.id) {
+                    "pianoflow_weekly" -> stringResource(R.string.paywall_plan_weekly_title)
+                    "pianoflow_monthly" -> stringResource(R.string.paywall_plan_monthly_title)
+                    "pianoflow_yearly" -> stringResource(R.string.paywall_plan_yearly_title)
+                    else -> plan.title
+                }
+                val localizedPeriod = when (plan.id) {
+                    "pianoflow_weekly" -> stringResource(R.string.paywall_plan_weekly_period)
+                    "pianoflow_monthly" -> stringResource(R.string.paywall_plan_monthly_period)
+                    "pianoflow_yearly" -> stringResource(R.string.paywall_plan_yearly_period)
+                    else -> plan.period
+                }
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = plan.title,
+                        text = localizedTitle,
                         style = MaterialTheme.typography.titleMedium,
                         color = Color.White,
                         fontWeight = FontWeight.Bold
@@ -308,13 +321,13 @@ private fun PlanCard(
                                 .background(BrandPrimary)
                                 .padding(horizontal = 6.dp, vertical = 2.dp)
                         ) {
-                            Text("POPULAR", fontSize = 9.sp, fontWeight = FontWeight.Bold, color = Color.White)
+                            Text(stringResource(R.string.paywall_popular_badge), fontSize = 9.sp, fontWeight = FontWeight.Bold, color = Color.White)
                         }
                     }
                 }
                 Spacer(modifier = Modifier.height(2.dp))
                 Text(
-                    text = plan.period,
+                    text = localizedPeriod,
                     style = MaterialTheme.typography.labelSmall,
                     color = Color.Gray
                 )

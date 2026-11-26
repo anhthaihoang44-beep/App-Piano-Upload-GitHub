@@ -33,7 +33,7 @@ public struct TwoPlayerKeyboardScreen: View {
                         .padding(6)
                 }
 
-                Text("Player 1 (Top)")
+                Text(L10n.tr("keyboard_player_1_top"))
                     .font(.caption2.bold())
                     .foregroundColor(PianoFlowColors.brandTertiary)
 
@@ -45,7 +45,7 @@ public struct TwoPlayerKeyboardScreen: View {
 
                 Spacer()
 
-                Text("Player 2 (Bottom)")
+                Text(L10n.tr("keyboard_player_2_bottom"))
                     .font(.caption2.bold())
                     .foregroundColor(PianoFlowColors.brandSecondary)
             }

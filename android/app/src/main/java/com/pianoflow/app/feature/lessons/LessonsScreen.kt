@@ -202,14 +202,14 @@ private fun LessonItemCard(
             // Info
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = lesson.title,
+                    text = stringResource(lesson.titleRes),
                     style = MaterialTheme.typography.titleMedium,
                     color = if (isUnlocked || isVipGated) Color.White else Color.Gray,
                     fontWeight = FontWeight.SemiBold
                 )
                 Spacer(modifier = Modifier.height(2.dp))
                 Text(
-                    text = lesson.description,
+                    text = stringResource(lesson.descriptionRes),
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.Gray,
                     fontSize = 12.sp,

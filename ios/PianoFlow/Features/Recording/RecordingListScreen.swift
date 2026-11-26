@@ -3,6 +3,7 @@ import UIKit
 
 public struct RecordingListScreen: View {
 
+    @Environment(\.locale) private var locale
     @ObservedObject var dataStore: PianoFlowDataStore
     let onReplayRecording: (RecordingEntity) -> Void
 
@@ -23,7 +24,7 @@ public struct RecordingListScreen: View {
                 Text(L10n.tr("recordings_title"))
                     .font(.title.bold())
                     .foregroundColor(.white)
-                Text("Replay and share your piano performances")
+                Text(L10n.tr("recordings_subtitle"))
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
@@ -65,7 +66,7 @@ public struct RecordingListScreen: View {
         .sheet(item: $shareItem) { payload in
             ShareSheetView(activityItems: [
                 payload.url,
-                "Listen to my piano performance on PianoFlow! 🎹"
+                L10n.tr("recordings_share_text")
             ])
         }
     }
@@ -125,7 +126,7 @@ private struct RecordingCardItem: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .lineLimit(1)
-                Text("\(formattedDate)  |  \(durationFormatted)  |  \(recording.noteCount) notes")
+                Text(L10n.format("recordings_meta_line", formattedDate, durationFormatted, recording.noteCount))
                     .font(.caption2)
                     .foregroundColor(.gray)
             }

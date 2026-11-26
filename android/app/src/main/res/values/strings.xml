@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">PianoFlow</string>
 
+    <!-- Common -->
+    <string name="common_ok">OK</string>
+    <string name="common_next">Next</string>
+    <string name="common_done">Done</string>
+    <string name="common_continue">Continue</string>
+    <string name="common_back">Back</string>
+    <string name="common_close">Close</string>
+
     <!-- Navigation -->
     <string name="nav_play">Play</string>
     <string name="nav_lessons">Lessons</string>
@@ -23,16 +31,34 @@
     <string name="keyboard_zoom_out">Zoom -</string>
     <string name="keyboard_reset_zoom">Reset Zoom</string>
     <string name="keyboard_loading_audio">Preloading Piano Samples…</string>
+    <string name="keyboard_double_range">Upper: C4–C6  |  Lower: C2–C4</string>
+    <string name="keyboard_player_1_top">Player 1 (Top)</string>
+    <string name="keyboard_player_2_bottom">Player 2 (Bottom)</string>
+    <string name="keyboard_notes_recorded">%1$d notes recorded (%2$ds)</string>
 
     <!-- Song Player -->
+    <string name="songs_subtitle">Master classic masterpieces step by step</string>
+    <string name="songs_filter_all">All</string>
+    <string name="songs_filter_easy">Easy</string>
+    <string name="songs_filter_intermediate">Intermediate</string>
+    <string name="songs_filter_medium">Medium</string>
+    <string name="songs_filter_hard">Hard</string>
     <string name="song_mode_watch">Watch</string>
     <string name="song_mode_follow">Follow</string>
     <string name="song_mode_perform">Perform</string>
     <string name="song_speed">Speed</string>
-    <string name="song_hand_both">Both Hands</string>
-    <string name="song_hand_right">Right Hand</string>
-    <string name="song_hand_left">Left Hand</string>
+    <string name="song_hand_both">Both</string>
+    <string name="song_hand_right">Right</string>
+    <string name="song_hand_left">Left</string>
     <string name="song_score">Score</string>
+    <string name="song_score_value">Score: %1$d</string>
+    <string name="song_combo_value">%1$d COMBO!</string>
+    <string name="song_accuracy_value">Accuracy: %1$d%%</string>
+    <string name="song_max_combo_value">Max Combo: %1$d</string>
+    <string name="song_hits_breakdown">Perfect: %1$d  |  Good: %2$d  |  Miss: %3$d</string>
+    <string name="song_hit_perfect">PERFECT</string>
+    <string name="song_hit_good">GOOD</string>
+    <string name="song_hit_miss">MISS</string>
     <string name="song_combo">Combo</string>
     <string name="song_accuracy">Accuracy</string>
     <string name="song_great_job">Great Performance!</string>
@@ -54,9 +80,63 @@
     <string name="lessons_lesson_completed">Lesson Complete!</string>
     <string name="lessons_xp_earned">+%1$d XP Earned</string>
     <string name="lessons_locked">Locked — Complete previous lessons</string>
+    <string name="lessons_instruction_label">Instruction</string>
+    <string name="lessons_target_note">Target Note: %1$s (%2$s)</string>
+    <string name="lessons_done_bang">Done!</string>
+    <string name="lessons_step_progress">Step %1$d / %2$d</string>
+
+    <!-- Lesson Items -->
+    <string name="lesson_1_title">Find Middle C</string>
+    <string name="lesson_1_desc">The central home base of the piano keyboard.</string>
+    <string name="lesson_1_inst">Middle C (C4) is located directly to the left of the group of two black keys near the center. Press Middle C to start!</string>
+
+    <string name="lesson_2_title">The First Trio: C, D, E</string>
+    <string name="lesson_2_desc">Learn your first three consecutive white keys.</string>
+    <string name="lesson_2_inst">Place your fingers on C4, D4, and E4. Play them in order from left to right: C -> D -> E.</string>
+
+    <string name="lesson_3_title">Black Keys: C# and D#</string>
+    <string name="lesson_3_desc">Discover sharps and the distinctive twin black keys.</string>
+    <string name="lesson_3_inst">The two black keys above C and D are C# (sharp) and D#. Play C4, C#4, D4, D#4.</string>
+
+    <string name="lesson_4_title">5-Finger Pentascale (C–G)</string>
+    <string name="lesson_4_desc">Use all five fingers on one position.</string>
+    <string name="lesson_4_inst">Assign Thumb (1) to C, Index (2) to D, Middle (3) to E, Ring (4) to F, Pinky (5) to G. Play C -> D -> E -> F -> G.</string>
+
+    <string name="lesson_5_title">Ode to Joy Theme</string>
+    <string name="lesson_5_desc">Play Beethoven\'s beloved melody using the 5-finger position.</string>
+    <string name="lesson_5_inst">Play the opening phrase: E -> E -> F -> G -> G -> F -> E -> D.</string>
+
+    <string name="lesson_6_title">Bass C &amp; Low Register</string>
+    <string name="lesson_6_desc">Anchor your left hand an octave lower.</string>
+    <string name="lesson_6_inst">Look one octave to the left for Bass C (C3). Press C3 with your left hand pinky.</string>
+
+    <string name="lesson_7_title">The Power of the 5th (C &amp; G)</string>
+    <string name="lesson_7_desc">The foundational accompaniment interval in modern music.</string>
+    <string name="lesson_7_inst">Play Bass C (C3) followed by Bass G (G3): low and resonant!</string>
+
+    <string name="lesson_8_title">Two-Hand Synchronization</string>
+    <string name="lesson_8_desc">Combine Left Hand Bass with Right Hand Melody.</string>
+    <string name="lesson_8_inst">Play C3 with Left Hand, then C4 with Right Hand: C3 -> C4 -> G3 -> G4.</string>
+
+    <string name="lesson_9_title">The C Major Triad</string>
+    <string name="lesson_9_desc">The most famous chord in Western harmony.</string>
+    <string name="lesson_9_inst">Play C4, E4, and G4 in sequence to build the C Major chord: C -> E -> G.</string>
+
+    <string name="lesson_10_title">The G Major Triad</string>
+    <string name="lesson_10_desc">The dominant chord that always resolves back to C.</string>
+    <string name="lesson_10_inst">Play G3, B3, and D4: G -> B -> D.</string>
+
+    <string name="lesson_11_title">Canon in D Mastery</string>
+    <string name="lesson_11_desc">Play Pachelbel\'s descending bassline and harmony.</string>
+    <string name="lesson_11_inst">Play the iconic progression notes: D -> C# -> B -> A.</string>
+
+    <string name="lesson_12_title">Für Elise Signature Hook</string>
+    <string name="lesson_12_desc">Beethoven\'s unforgettable alternating motif.</string>
+    <string name="lesson_12_inst">Play the famous phrase: E5 -> D#5 -> E5 -> D#5 -> E5 -> B4 -> D5 -> C5 -> A4.</string>
 
     <!-- Recordings -->
     <string name="recordings_title">My Recordings</string>
+    <string name="recordings_subtitle">Replay and share your piano performances</string>
     <string name="recordings_start">Record</string>
     <string name="recordings_stop">Stop</string>
     <string name="recordings_recording">Recording…</string>
@@ -68,6 +148,11 @@
     <string name="recordings_share">Share</string>
     <string name="recordings_export_wav">Exporting WAV…</string>
     <string name="recordings_delete">Delete</string>
+    <string name="recordings_replay_subtitle">Recording Replay</string>
+    <string name="recordings_meta_line">%1$s  |  %2$s  |  %3$d notes</string>
+    <string name="recordings_share_subject">PianoFlow Recording: %1$s</string>
+    <string name="recordings_share_text">Listen to my piano performance on PianoFlow! 🎹</string>
+    <string name="recordings_share_chooser">Share Piano Recording</string>
 
     <!-- Paywall & Subscriptions -->
     <string name="paywall_title">Unlock PianoFlow Premium</string>
@@ -79,31 +164,65 @@
     <string name="paywall_plan_weekly">Weekly / $2.99</string>
     <string name="paywall_plan_monthly">Monthly / $7.99 (Popular)</string>
     <string name="paywall_plan_yearly">Yearly / $39.99 (Best Value)</string>
+    <string name="paywall_plan_weekly_title">Weekly VIP</string>
+    <string name="paywall_plan_weekly_period">per week</string>
+    <string name="paywall_plan_monthly_title">Monthly VIP</string>
+    <string name="paywall_plan_monthly_period">per month</string>
+    <string name="paywall_plan_yearly_title">Yearly VIP</string>
+    <string name="paywall_plan_yearly_period">per year (Save 60%)</string>
+    <string name="paywall_popular_badge">POPULAR</string>
     <string name="paywall_subscribe_now">Start 7-Day Free Trial</string>
     <string name="paywall_restore">Restore Purchases</string>
     <string name="paywall_premium_badge">PREMIUM</string>
     <string name="paywall_premium_active">PianoFlow Premium Active</string>
+    <string name="paywall_banner_active_sub">All features unlocked</string>
+    <string name="paywall_banner_inactive_sub">Tap to unlock unlimited access</string>
 
     <!-- Profile & Settings -->
     <string name="profile_title">Profile &amp; Settings</string>
     <string name="profile_xp">Total XP</string>
     <string name="profile_streak">Day Streak</string>
+    <string name="profile_streak_days">%1$d Days</string>
+    <string name="profile_lessons_passed">Lessons Passed</string>
     <string name="profile_songs_played">Songs Played</string>
+    <string name="profile_weekly_activity">Weekly Activity</string>
+    <string name="profile_settings_header">Settings</string>
+    <string name="profile_language">Language</string>
+    <string name="profile_language_en">English</string>
+    <string name="profile_language_vi">Tiếng Việt</string>
     <string name="profile_daily_reminder">Daily Practice Reminder</string>
     <string name="profile_reminder_time">Reminder Time (8:00 PM)</string>
     <string name="profile_haptics">Haptic Feedback on Touch</string>
     <string name="profile_sound_latency">Low Latency Audio</string>
+    <string name="profile_sound_latency_desc">Sub-50ms Low-Latency SoundPool Engine</string>
     <string name="profile_privacy">Privacy Policy</string>
     <string name="profile_terms">Terms of Service</string>
+    <string name="day_mon">Mon</string>
+    <string name="day_tue">Tue</string>
+    <string name="day_wed">Wed</string>
+    <string name="day_thu">Thu</string>
+    <string name="day_fri">Fri</string>
+    <string name="day_sat">Sat</string>
+    <string name="day_sun">Sun</string>
+
+    <!-- Legal -->
+    <string name="legal_privacy_heading">PianoFlow Privacy Policy</string>
+    <string name="legal_privacy_body">Last updated: September 2026\n\nYour privacy is important to us. PianoFlow does not collect, sell, or transmit any personal data or recorded melodies to external servers without your permission.\n\n1. Local Storage: All song scores, lesson progress, and recorded piano files are stored securely on your local device.\n\n2. Audio &amp; Recordings: Audio recordings are processed on-device and only exported or shared when you explicitly initiate sharing.\n\n3. Subscriptions &amp; Billing: In-app purchases are securely processed through official store billing. We do not store your credit card or payment credentials.\n\n4. Contact: For privacy questions, contact support@pianoflow.app.</string>
+    <string name="legal_terms_heading">PianoFlow Terms of Service</string>
+    <string name="legal_terms_body">Last updated: September 2026\n\nBy downloading or using PianoFlow, you agree to the following terms:\n\n1. License: PianoFlow grants you a revocable, non-exclusive, non-transferable personal license to learn and play piano for personal entertainment and educational use.\n\n2. Songs &amp; Intellectual Property: All musical arrangements included within the application are in the public domain or independently created. You own full rights to original songs you compose and record using PianoFlow.\n\n3. Subscriptions: PianoFlow Premium provides recurring weekly, monthly, and yearly options. Subscriptions automatically renew unless cancelled at least 24 hours prior to the end of the billing period via your account settings.\n\n4. Disclaimer: The software is provided \'as is\' without warranties of any kind.</string>
 
     <!-- Onboarding -->
     <string name="onboarding_step1_title">Welcome to PianoFlow</string>
     <string name="onboarding_step1_desc">Learn piano the fun, natural way with interactive visual notes and real-time feedback.</string>
     <string name="onboarding_step2_title">What is your skill level?</string>
+    <string name="onboarding_level_beginner_title">Beginner</string>
+    <string name="onboarding_level_intermediate_title">Intermediate</string>
+    <string name="onboarding_level_advanced_title">Advanced</string>
     <string name="onboarding_level_beginner">Beginner (Never played before)</string>
     <string name="onboarding_level_intermediate">Intermediate (Know some basics)</string>
     <string name="onboarding_level_advanced">Advanced (Can play songs)</string>
     <string name="onboarding_step3_title">Set your daily practice goal</string>
+    <string name="onboarding_goal_min_per_day">%1$d min / day</string>
     <string name="onboarding_goal_casual">5 min / day (Casual)</string>
     <string name="onboarding_goal_regular">15 min / day (Recommended)</string>
     <string name="onboarding_goal_serious">30 min / day (Intensive)</string>
@@ -113,4 +232,5 @@
     <string name="reminder_notification_title">Time for Piano Practice! 🎹</string>
     <string name="reminder_notification_body">Keep your streak going! Play for 10 minutes today to advance your skills.</string>
     <string name="notification_channel_name">Daily Practice Reminders</string>
+    <string name="notification_channel_desc">Daily reminders to maintain your piano playing streak</string>
 </resources>

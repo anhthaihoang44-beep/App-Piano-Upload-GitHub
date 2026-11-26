@@ -39,12 +39,13 @@ public struct SongListScreen: View {
     }
 
     public var body: some View {
+        let _ = preferencesRepository.appLanguage
         VStack(alignment: .leading, spacing: 12) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(L10n.tr("nav_songs"))
                     .font(.title.bold())
                     .foregroundColor(.white)
-                Text("Master classic masterpieces step by step")
+                Text(L10n.tr("songs_subtitle"))
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
@@ -57,7 +58,7 @@ public struct SongListScreen: View {
                         Button {
                             selectedFilter = filter
                         } label: {
-                            Text(filter)
+                            Text(localizedFilterLabel(filter))
                                 .font(.subheadline.weight(.medium))
                                 .foregroundColor(isSelected ? .white : .gray)
                                 .padding(.horizontal, 14)
@@ -91,6 +92,16 @@ public struct SongListScreen: View {
         }
         .padding(.horizontal, 16)
         .background(PianoFlowColors.backgroundDark.ignoresSafeArea())
+    }
+
+    private func localizedFilterLabel(_ filter: String) -> String {
+        switch filter.lowercased() {
+        case "easy": return L10n.tr("songs_filter_easy")
+        case "intermediate": return L10n.tr("songs_filter_intermediate")
+        case "medium": return L10n.tr("songs_filter_medium")
+        case "hard": return L10n.tr("songs_filter_hard")
+        default: return L10n.tr("songs_filter_all")
+        }
     }
 }
 
@@ -129,7 +140,16 @@ private struct SongItemCard: View {
                         }
                     }
 
-                    Text("\(song.composer) • \(song.difficulty) • \(song.bpm) BPM")
+                    let localizedDifficulty: String = {
+                        switch song.difficulty.lowercased() {
+                        case "easy": return L10n.tr("songs_filter_easy")
+                        case "intermediate": return L10n.tr("songs_filter_intermediate")
+                        case "medium": return L10n.tr("songs_filter_medium")
+                        case "hard": return L10n.tr("songs_filter_hard")
+                        default: return song.difficulty
+                        }
+                    }()
+                    Text("\(song.composer) • \(localizedDifficulty) • \(song.bpm) BPM")
                         .font(.caption)
                         .foregroundColor(.gray)
                 }

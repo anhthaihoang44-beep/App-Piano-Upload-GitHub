@@ -18,11 +18,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.PrivacyTip
 import androidx.compose.material.icons.filled.Speed
@@ -30,7 +30,7 @@ import androidx.compose.material.icons.filled.Vibration
 import androidx.compose.material.icons.filled.WorkspacePremium
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
@@ -54,6 +54,7 @@ import com.pianoflow.app.core.billing.BillingRepository
 import com.pianoflow.app.core.database.AppDatabase
 import com.pianoflow.app.core.datastore.UserPreferencesRepository
 import com.pianoflow.app.core.notifications.DailyPracticeWorker
+import com.pianoflow.app.core.util.LocaleHelper
 import com.pianoflow.app.ui.theme.BackgroundDark
 import com.pianoflow.app.ui.theme.BrandPrimary
 import com.pianoflow.app.ui.theme.BrandSecondary
@@ -81,6 +82,7 @@ fun ProfileScreen(
     val streakDays by preferencesRepository.streakDays.collectAsState(initial = 1)
     val hapticsEnabled by preferencesRepository.hapticsEnabled.collectAsState(initial = true)
     val reminderEnabled by preferencesRepository.dailyReminderEnabled.collectAsState(initial = true)
+    val appLanguage by preferencesRepository.appLanguage.collectAsState(initial = LocaleHelper.LANG_EN)
 
     val notificationPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
@@ -99,7 +101,6 @@ fun ProfileScreen(
     ) {
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Title Header
         Text(
             text = stringResource(R.string.profile_title),
             style = MaterialTheme.typography.headlineMedium,
@@ -140,7 +141,7 @@ fun ProfileScreen(
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = if (isPremium) "All features unlocked" else "Tap to unlock unlimited access",
+                        text = if (isPremium) stringResource(R.string.paywall_banner_active_sub) else stringResource(R.string.paywall_banner_inactive_sub),
                         style = MaterialTheme.typography.labelSmall,
                         color = Color.White.copy(alpha = 0.8f)
                     )
@@ -164,7 +165,7 @@ fun ProfileScreen(
             )
             StatCard(
                 title = stringResource(R.string.profile_streak),
-                value = "$streakDays Days",
+                value = stringResource(R.string.profile_streak_days, streakDays),
                 color = Color(0xFFFF9800),
                 modifier = Modifier.weight(1f)
             )
@@ -177,7 +178,7 @@ fun ProfileScreen(
             horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             StatCard(
-                title = "Lessons Passed",
+                title = stringResource(R.string.profile_lessons_passed),
                 value = "$completedLessonsCount",
                 color = BrandPrimary,
                 modifier = Modifier.weight(1f)
@@ -200,7 +201,7 @@ fun ProfileScreen(
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
-                    text = "Weekly Activity",
+                    text = stringResource(R.string.profile_weekly_activity),
                     style = MaterialTheme.typography.titleMedium,
                     color = Color.White,
                     fontWeight = FontWeight.Bold
@@ -211,7 +212,15 @@ fun ProfileScreen(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.Bottom
                 ) {
-                    val days = listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+                    val days = listOf(
+                        stringResource(R.string.day_mon),
+                        stringResource(R.string.day_tue),
+                        stringResource(R.string.day_wed),
+                        stringResource(R.string.day_thu),
+                        stringResource(R.string.day_fri),
+                        stringResource(R.string.day_sat),
+                        stringResource(R.string.day_sun)
+                    )
                     val heights = listOf(40.dp, 65.dp, 30.dp, 80.dp, 95.dp, 60.dp, 85.dp)
                     days.forEachIndexed { idx, day ->
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -236,7 +245,7 @@ fun ProfileScreen(
 
         // Settings Section
         Text(
-            text = "Settings",
+            text = stringResource(R.string.profile_settings_header),
             style = MaterialTheme.typography.titleMedium,
             color = Color.White,
             fontWeight = FontWeight.Bold
@@ -249,6 +258,43 @@ fun ProfileScreen(
             shape = RoundedCornerShape(16.dp)
         ) {
             Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+                // Language Switcher
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(Icons.Default.Language, contentDescription = null, tint = BrandSecondary)
+                    Spacer(modifier = Modifier.width(14.dp))
+                    Text(
+                        text = stringResource(R.string.profile_language),
+                        color = Color.White,
+                        fontSize = 14.sp,
+                        modifier = Modifier.weight(1f)
+                    )
+                    Row(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(SurfaceElevatedDark)
+                            .padding(3.dp),
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        LanguageChip(
+                            label = stringResource(R.string.profile_language_en),
+                            selected = appLanguage == LocaleHelper.LANG_EN,
+                            onClick = { scope.launch { preferencesRepository.setAppLanguage(LocaleHelper.LANG_EN) } }
+                        )
+                        LanguageChip(
+                            label = stringResource(R.string.profile_language_vi),
+                            selected = appLanguage == LocaleHelper.LANG_VI,
+                            onClick = { scope.launch { preferencesRepository.setAppLanguage(LocaleHelper.LANG_VI) } }
+                        )
+                    }
+                }
+
+                HorizontalDivider(color = SurfaceElevatedDark)
+
                 // Practice Reminder Setting
                 Row(
                     modifier = Modifier
@@ -282,7 +328,7 @@ fun ProfileScreen(
                     )
                 }
 
-                Divider(color = SurfaceElevatedDark)
+                HorizontalDivider(color = SurfaceElevatedDark)
 
                 // Haptic Feedback Setting
                 Row(
@@ -308,7 +354,7 @@ fun ProfileScreen(
                     )
                 }
 
-                Divider(color = SurfaceElevatedDark)
+                HorizontalDivider(color = SurfaceElevatedDark)
 
                 // Audio Latency info
                 Row(
@@ -321,7 +367,7 @@ fun ProfileScreen(
                     Spacer(modifier = Modifier.width(14.dp))
                     Column(modifier = Modifier.weight(1f)) {
                         Text(stringResource(R.string.profile_sound_latency), color = Color.White, fontSize = 14.sp)
-                        Text("Sub-50ms Low-Latency SoundPool Engine", color = Color.Gray, fontSize = 11.sp)
+                        Text(stringResource(R.string.profile_sound_latency_desc), color = Color.Gray, fontSize = 11.sp)
                     }
                 }
             }
@@ -349,7 +395,7 @@ fun ProfileScreen(
                     Icon(Icons.Default.ChevronRight, contentDescription = null, tint = Color.Gray)
                 }
 
-                Divider(color = SurfaceElevatedDark)
+                HorizontalDivider(color = SurfaceElevatedDark)
 
                 Row(
                     modifier = Modifier
@@ -367,6 +413,28 @@ fun ProfileScreen(
         }
 
         Spacer(modifier = Modifier.height(24.dp))
+    }
+}
+
+@Composable
+private fun LanguageChip(
+    label: String,
+    selected: Boolean,
+    onClick: () -> Unit
+) {
+    Box(
+        modifier = Modifier
+            .clip(RoundedCornerShape(8.dp))
+            .background(if (selected) BrandPrimary else Color.Transparent)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 10.dp, vertical = 6.dp)
+    ) {
+        Text(
+            text = label,
+            fontSize = 12.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = if (selected) Color.White else Color.Gray
+        )
     }
 }
 

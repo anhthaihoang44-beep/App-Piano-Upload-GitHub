@@ -164,7 +164,7 @@ fun SongPlayerScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Score: $score",
+                    text = stringResource(R.string.song_score_value, score),
                     style = MaterialTheme.typography.titleMedium,
                     color = BrandSecondary,
                     fontWeight = FontWeight.Bold
@@ -172,7 +172,7 @@ fun SongPlayerScreen(
 
                 if (currentCombo > 1) {
                     Text(
-                        text = "$currentCombo COMBO!",
+                        text = stringResource(R.string.song_combo_value, currentCombo),
                         style = MaterialTheme.typography.titleMedium,
                         color = BrandPrimary,
                         fontWeight = FontWeight.ExtraBold
@@ -180,8 +180,13 @@ fun SongPlayerScreen(
                 }
 
                 lastHitRating?.let { rating ->
+                    val ratingLabel = when (rating) {
+                        HitRating.PERFECT -> stringResource(R.string.song_hit_perfect)
+                        HitRating.GOOD -> stringResource(R.string.song_hit_good)
+                        HitRating.MISS -> stringResource(R.string.song_hit_miss)
+                    }
                     Text(
-                        text = rating.name,
+                        text = ratingLabel,
                         style = MaterialTheme.typography.labelLarge,
                         color = if (rating == HitRating.PERFECT) GoldStarColor else BrandSecondary,
                         fontWeight = FontWeight.Bold
@@ -258,17 +263,17 @@ fun SongPlayerScreen(
                         FilterChip(
                             selected = selectedHand == HandType.BOTH,
                             onClick = { viewModel.setSelectedHand(HandType.BOTH) },
-                            label = { Text("Both", fontSize = 11.sp) }
+                            label = { Text(stringResource(R.string.song_hand_both), fontSize = 11.sp) }
                         )
                         FilterChip(
                             selected = selectedHand == HandType.RIGHT,
                             onClick = { viewModel.setSelectedHand(HandType.RIGHT) },
-                            label = { Text("Right", fontSize = 11.sp, color = RightHandColor) }
+                            label = { Text(stringResource(R.string.song_hand_right), fontSize = 11.sp, color = RightHandColor) }
                         )
                         FilterChip(
                             selected = selectedHand == HandType.LEFT,
                             onClick = { viewModel.setSelectedHand(HandType.LEFT) },
-                            label = { Text("Left", fontSize = 11.sp, color = LeftHandColor) }
+                            label = { Text(stringResource(R.string.song_hand_left), fontSize = 11.sp, color = LeftHandColor) }
                         )
                     }
 
@@ -360,11 +365,11 @@ fun SongPlayerScreen(
                     }
 
                     Spacer(modifier = Modifier.height(12.dp))
-                    Text("Score: ${summary.score}", style = MaterialTheme.typography.titleLarge, color = BrandSecondary)
-                    Text("Accuracy: ${summary.accuracyPercent.toInt()}%", style = MaterialTheme.typography.bodyLarge)
-                    Text("Max Combo: ${summary.maxCombo}", style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
+                    Text(stringResource(R.string.song_score_value, summary.score), style = MaterialTheme.typography.titleLarge, color = BrandSecondary)
+                    Text(stringResource(R.string.song_accuracy_value, summary.accuracyPercent.toInt()), style = MaterialTheme.typography.bodyLarge)
+                    Text(stringResource(R.string.song_max_combo_value, summary.maxCombo), style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
                     Spacer(modifier = Modifier.height(8.dp))
-                    Text("Perfect: ${summary.perfectHits}  |  Good: ${summary.goodHits}  |  Miss: ${summary.misses}", fontSize = 12.sp, color = Color.Gray)
+                    Text(stringResource(R.string.song_hits_breakdown, summary.perfectHits, summary.goodHits, summary.misses), fontSize = 12.sp, color = Color.Gray)
                 }
             },
             confirmButton = {
@@ -387,7 +392,7 @@ fun SongPlayerScreen(
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = SurfaceElevatedDark)
                 ) {
-                    Text("Done")
+                    Text(stringResource(R.string.common_done))
                 }
             },
             containerColor = SurfaceDark

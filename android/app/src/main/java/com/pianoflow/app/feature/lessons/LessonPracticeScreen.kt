@@ -132,7 +132,7 @@ fun LessonPracticeScreen(
             }
             Column {
                 Text(
-                    text = lesson.title,
+                    text = stringResource(lesson.titleRes),
                     style = MaterialTheme.typography.titleMedium,
                     color = Color.White
                 )
@@ -154,14 +154,14 @@ fun LessonPracticeScreen(
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
-                    text = "Instruction",
+                    text = stringResource(R.string.lessons_instruction_label),
                     style = MaterialTheme.typography.labelSmall,
                     color = BrandPrimary,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = lesson.instruction,
+                    text = stringResource(lesson.instructionRes),
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.White
                 )
@@ -175,13 +175,21 @@ fun LessonPracticeScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Target Note: ${targetPitch?.nameEn ?: "Done!"} (${targetPitch?.nameSolfege ?: ""})",
+                        text = stringResource(
+                            R.string.lessons_target_note,
+                            targetPitch?.nameEn ?: stringResource(R.string.lessons_done_bang),
+                            targetPitch?.nameSolfege ?: ""
+                        ),
                         style = MaterialTheme.typography.titleSmall,
                         color = BrandSecondary,
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "Step ${currentStepIndex.coerceAtMost(targetNotes.size)} / ${targetNotes.size}",
+                        text = stringResource(
+                            R.string.lessons_step_progress,
+                            currentStepIndex.coerceAtMost(targetNotes.size),
+                            targetNotes.size
+                        ),
                         style = MaterialTheme.typography.labelSmall,
                         color = Color.Gray
                     )
@@ -271,7 +279,7 @@ fun LessonPracticeScreen(
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = BrandPrimary)
                 ) {
-                    Text("Continue")
+                    Text(stringResource(R.string.common_continue))
                 }
             },
             containerColor = SurfaceDark

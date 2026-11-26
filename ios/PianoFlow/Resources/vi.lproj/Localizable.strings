@@ -1,5 +1,13 @@
 "app_name" = "PianoFlow";
 
+/* Common */
+"common_ok" = "Đồng ý";
+"common_next" = "Tiếp theo";
+"common_done" = "Xong";
+"common_continue" = "Tiếp tục";
+"common_back" = "Quay lại";
+"common_close" = "Đóng";
+
 /* Navigation */
 "nav_play" = "Chơi đàn";
 "nav_lessons" = "Bài học";
@@ -22,8 +30,18 @@
 "keyboard_zoom_out" = "Thu nhỏ";
 "keyboard_reset_zoom" = "Mặc định";
 "keyboard_loading_audio" = "Đang tải âm thanh đàn Piano…";
+"keyboard_double_range" = "Hàng trên: C4–C6  |  Hàng dưới: C2–C4";
+"keyboard_player_1_top" = "Người chơi 1 (Trên)";
+"keyboard_player_2_bottom" = "Người chơi 2 (Dưới)";
+"keyboard_notes_recorded" = "Đã ghi %d nốt (%ds)";
 
 /* Song Player */
+"songs_subtitle" = "Chinh phục các tác phẩm kinh điển từng bước";
+"songs_filter_all" = "Tất cả";
+"songs_filter_easy" = "Dễ";
+"songs_filter_intermediate" = "Trung bình";
+"songs_filter_medium" = "Vừa";
+"songs_filter_hard" = "Khó";
 "song_mode_watch" = "Xem mẫu";
 "song_mode_follow" = "Chờ phím";
 "song_mode_perform" = "Biểu diễn";
@@ -32,6 +50,14 @@
 "song_hand_right" = "Tay phải";
 "song_hand_left" = "Tay trái";
 "song_score" = "Điểm số";
+"song_score_value" = "Điểm: %d";
+"song_combo_value" = "CHUỖI %d!";
+"song_accuracy_value" = "Độ chuẩn xác: %d%%";
+"song_max_combo_value" = "Chuỗi tối đa: %d";
+"song_hits_breakdown" = "Hoàn hảo: %d  |  Tốt: %d  |  Trượt: %d";
+"song_hit_perfect" = "HOÀN HẢO";
+"song_hit_good" = "TỐT";
+"song_hit_miss" = "TRƯỢT";
 "song_combo" = "Chuỗi";
 "song_accuracy" = "Độ chuẩn xác";
 "song_great_job" = "Tuyệt vời!";
@@ -53,9 +79,63 @@
 "lessons_lesson_completed" = "Hoàn thành bài học!";
 "lessons_xp_earned" = "+%d Điểm thưởng XP";
 "lessons_locked" = "Đang khóa — Hãy hoàn thành bài trước";
+"lessons_instruction_label" = "Hướng dẫn";
+"lessons_target_note" = "Nốt cần bấm: %@ (%@)";
+"lessons_done_bang" = "Hoàn tất!";
+"lessons_step_progress" = "Bước %d / %d";
+
+/* Lesson Items */
+"lesson_1_title" = "Tìm nốt Đô giữa (C4)";
+"lesson_1_desc" = "Điểm tựa trung tâm trên bàn phím piano.";
+"lesson_1_inst" = "Nốt C4 (Đô4) nằm ngay bên trái cụm hai phím đen ở giữa đàn. Hãy bấm phím C4 để bắt đầu!";
+
+"lesson_2_title" = "Bộ ba đầu tiên: C, D, E";
+"lesson_2_desc" = "Làm quen với ba phím trắng liên tiếp đầu tiên.";
+"lesson_2_inst" = "Đặt ngón tay lên C4, D4 và E4. Bấm lần lượt từ trái sang phải: C -> D -> E.";
+
+"lesson_3_title" = "Phím đen: C# và D#";
+"lesson_3_desc" = "Khám phá dấu thăng và cụm hai phím đen đặc trưng.";
+"lesson_3_inst" = "Hai phím đen phía trên C và D là C# và D#. Hãy bấm lần lượt C4, C#4, D4, D#4.";
+
+"lesson_4_title" = "Ngũ âm 5 ngón (C–G)";
+"lesson_4_desc" = "Sử dụng đồng đều cả năm ngón tay trên một vị trí.";
+"lesson_4_inst" = "Đặt ngón Cái (1) vào C, Trỏ (2) vào D, Giữa (3) vào E, Áp út (4) vào F, Út (5) vào G. Bấm C -> D -> E -> F -> G.";
+
+"lesson_5_title" = "Giai điệu Ode to Joy";
+"lesson_5_desc" = "Chơi giai điệu bất hủ của Beethoven bằng thế tay 5 ngón.";
+"lesson_5_inst" = "Chơi câu nhạc mở đầu: E -> E -> F -> G -> G -> F -> E -> D.";
+
+"lesson_6_title" = "Đô trầm (C3) & Âm vực thấp";
+"lesson_6_desc" = "Đặt tay trái thấp hơn một quãng tám để giữ nhịp nền.";
+"lesson_6_inst" = "Tìm nốt C3 (Đô3) lệch về bên trái một quãng tám. Bấm C3 bằng ngón út tay trái.";
+
+"lesson_7_title" = "Sức mạnh quãng 5 (C & G)";
+"lesson_7_desc" = "Quãng đệm nền tảng trong âm nhạc hiện đại.";
+"lesson_7_inst" = "Chơi nốt trầm C3 rồi đến G3 để cảm nhận độ vang đầy đặn!";
+
+"lesson_8_title" = "Phối hợp hai tay";
+"lesson_8_desc" = "Kết hợp âm trầm tay trái với giai điệu tay phải.";
+"lesson_8_inst" = "Bấm C3 bằng tay trái, tiếp theo C4 bằng tay phải: C3 -> C4 -> G3 -> G4.";
+
+"lesson_9_title" = "Hợp âm Đô trưởng (C Major)";
+"lesson_9_desc" = "Hợp âm ba phổ biến nhất trong hòa âm phương Tây.";
+"lesson_9_inst" = "Bấm lần lượt C4, E4 và G4 để tạo thành hợp âm Đô trưởng: C -> E -> G.";
+
+"lesson_10_title" = "Hợp âm Sol trưởng (G Major)";
+"lesson_10_desc" = "Hợp âm át luôn dẫn giai điệu quay về C.";
+"lesson_10_inst" = "Bấm lần lượt G3, B3 và D4: G -> B -> D.";
+
+"lesson_11_title" = "Tinh hoa Canon in D";
+"lesson_11_desc" = "Chơi tuyến giai điệu đi xuống kinh điển của Pachelbel.";
+"lesson_11_inst" = "Bấm chuỗi nốt đặc trưng: D -> C# -> B -> A.";
+
+"lesson_12_title" = "Đoạn mở đầu Für Elise";
+"lesson_12_desc" = "Mô-típ luân phiên khó quên của Beethoven.";
+"lesson_12_inst" = "Chơi câu nhạc nổi tiếng: E5 -> D#5 -> E5 -> D#5 -> E5 -> B4 -> D5 -> C5 -> A4.";
 
 /* Recordings */
 "recordings_title" = "Bản ghi của tôi";
+"recordings_subtitle" = "Nghe lại và chia sẻ phần trình diễn của bạn";
 "recordings_start" = "Ghi âm";
 "recordings_stop" = "Dừng";
 "recordings_recording" = "Đang ghi âm…";
@@ -67,6 +147,9 @@
 "recordings_share" = "Chia sẻ";
 "recordings_export_wav" = "Đang xuất file WAV…";
 "recordings_delete" = "Xóa";
+"recordings_replay_subtitle" = "Phát lại bản ghi";
+"recordings_meta_line" = "%@  |  %@  |  %d nốt";
+"recordings_share_text" = "Nghe phần trình diễn piano của tôi trên PianoFlow! 🎹";
 
 /* Paywall & Subscriptions */
 "paywall_title" = "Nâng cấp PianoFlow VIP";
@@ -78,31 +161,65 @@
 "paywall_plan_weekly" = "Gói Tuần / 69.000đ";
 "paywall_plan_monthly" = "Gói Tháng / 189.000đ (Phổ biến)";
 "paywall_plan_yearly" = "Gói Năm / 899.000đ (Tiết kiệm nhất)";
+"paywall_plan_weekly_title" = "VIP Tuần";
+"paywall_plan_weekly_period" = "mỗi tuần";
+"paywall_plan_monthly_title" = "VIP Tháng";
+"paywall_plan_monthly_period" = "mỗi tháng";
+"paywall_plan_yearly_title" = "VIP Năm";
+"paywall_plan_yearly_period" = "mỗi năm (Tiết kiệm 60%)";
+"paywall_popular_badge" = "PHỔ BIẾN";
 "paywall_subscribe_now" = "Dùng thử 7 ngày miễn phí";
 "paywall_restore" = "Khôi phục gói mua";
 "paywall_premium_badge" = "VIP";
 "paywall_premium_active" = "Gói PianoFlow VIP đang hoạt động";
+"paywall_banner_active_sub" = "Đã mở khóa tất cả tính năng";
+"paywall_banner_inactive_sub" = "Chạm để mở khóa không giới hạn";
 
 /* Profile & Settings */
 "profile_title" = "Hồ sơ & Cài đặt";
 "profile_xp" = "Tổng điểm XP";
 "profile_streak" = "Chuỗi ngày học";
+"profile_streak_days" = "%d ngày";
+"profile_lessons_passed" = "Bài học hoàn thành";
 "profile_songs_played" = "Bài hát đã chơi";
+"profile_weekly_activity" = "Hoạt động trong tuần";
+"profile_settings_header" = "Cài đặt";
+"profile_language" = "Ngôn ngữ";
+"profile_language_en" = "English";
+"profile_language_vi" = "Tiếng Việt";
 "profile_daily_reminder" = "Nhắc nhở luyện tập mỗi ngày";
 "profile_reminder_time" = "Giờ nhắc nhở (20:00)";
 "profile_haptics" = "Rung phản hồi khi chạm phím";
 "profile_sound_latency" = "Độ trễ âm thanh siêu thấp";
+"profile_sound_latency_desc" = "Độ trễ dưới 15ms với AVAudioEngine";
 "profile_privacy" = "Chính sách bảo mật";
 "profile_terms" = "Điều khoản sử dụng";
+"day_mon" = "T2";
+"day_tue" = "T3";
+"day_wed" = "T4";
+"day_thu" = "T5";
+"day_fri" = "T6";
+"day_sat" = "T7";
+"day_sun" = "CN";
+
+/* Legal */
+"legal_privacy_heading" = "Chính sách bảo mật PianoFlow";
+"legal_privacy_body" = "Cập nhật lần cuối: Tháng 9/2026\n\nQuyền riêng tư của bạn rất quan trọng với chúng tôi. PianoFlow không thu thập, bán hay gửi dữ liệu cá nhân hoặc bản ghi âm của bạn lên máy chủ bên ngoài khi chưa có sự cho phép.\n\n1. Lưu trữ cục bộ: Toàn bộ điểm số, tiến độ bài học và bản ghi piano được lưu an toàn ngay trên thiết bị bằng Apple SwiftData và UserDefaults.\n\n2. Âm thanh & Bản ghi: Âm thanh được xử lý trực tiếp trên thiết bị và chỉ xuất hoặc chia sẻ khi bạn chủ động mở bảng Chia sẻ iOS.\n\n3. Gói đăng ký & Thanh toán: Giao dịch mua trong ứng dụng được xử lý bảo mật qua Apple StoreKit 2 và App Store. Chúng tôi không lưu thông tin thẻ thanh toán của bạn.\n\n4. Liên hệ: Mọi thắc mắc về quyền riêng tư vui lòng gửi về support@pianoflow.app.";
+"legal_terms_heading" = "Điều khoản sử dụng PianoFlow";
+"legal_terms_body" = "Cập nhật lần cuối: Tháng 9/2026\n\nKhi tải xuống hoặc sử dụng PianoFlow, bạn đồng ý với các điều khoản sau:\n\n1. Giấy phép: PianoFlow cấp cho bạn quyền sử dụng cá nhân, không độc quyền để học tập và giải trí với đàn piano.\n\n2. Bài hát & Bản quyền: Các bản phối có sẵn trong ứng dụng thuộc phạm vi công cộng hoặc được biên soạn độc lập. Bạn toàn quyền sở hữu các giai điệu do chính mình sáng tác và ghi âm trên PianoFlow.\n\n3. Gói đăng ký: PianoFlow Premium cung cấp các gói định kỳ theo tuần, tháng và năm. Gói đăng ký tự động gia hạn trừ khi được hủy ít nhất 24 giờ trước khi kết thúc chu kỳ trong phần Quản lý đăng ký Apple ID.\n\n4. Miễn trừ trách nhiệm: Phần mềm được cung cấp theo nguyên trạng.";
 
 /* Onboarding */
 "onboarding_step1_title" = "Chào mừng đến với PianoFlow";
 "onboarding_step1_desc" = "Học piano thật tự nhiên và thú vị qua các phím đàn trực quan và phản hồi tức thì.";
 "onboarding_step2_title" = "Trình độ hiện tại của bạn?";
+"onboarding_level_beginner_title" = "Mới bắt đầu";
+"onboarding_level_intermediate_title" = "Trung cấp";
+"onboarding_level_advanced_title" = "Nâng cao";
 "onboarding_level_beginner" = "Mới bắt đầu (Chưa từng chơi)";
 "onboarding_level_intermediate" = "Trung cấp (Biết các nốt cơ bản)";
 "onboarding_level_advanced" = "Nâng cao (Có thể chơi bài hát)";
 "onboarding_step3_title" = "Mục tiêu luyện tập mỗi ngày";
+"onboarding_goal_min_per_day" = "%d phút / ngày";
 "onboarding_goal_casual" = "5 phút / ngày (Nhẹ nhàng)";
 "onboarding_goal_regular" = "15 phút / ngày (Khuyên dùng)";
 "onboarding_goal_serious" = "30 phút / ngày (Chuyên sâu)";

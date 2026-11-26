@@ -30,6 +30,7 @@ class UserPreferencesRepository(private val context: Context) {
         val LAST_PRACTICE_DAY = stringPreferencesKey("last_practice_day")
         val IS_PREMIUM = booleanPreferencesKey("is_premium")
         val VISIBLE_KEYS_COUNT = intPreferencesKey("visible_keys_count")
+        val APP_LANGUAGE = stringPreferencesKey("app_language")
     }
 
     val notationType: Flow<NotationType> = context.dataStore.data.map { prefs ->
@@ -50,6 +51,7 @@ class UserPreferencesRepository(private val context: Context) {
     val streakDays: Flow<Int> = context.dataStore.data.map { it[Keys.STREAK_DAYS] ?: 1 }
     val isPremium: Flow<Boolean> = context.dataStore.data.map { it[Keys.IS_PREMIUM] ?: false }
     val visibleKeysCount: Flow<Int> = context.dataStore.data.map { it[Keys.VISIBLE_KEYS_COUNT] ?: 14 } // ~2 octaves default
+    val appLanguage: Flow<String> = context.dataStore.data.map { it[Keys.APP_LANGUAGE] ?: "en" }
 
     suspend fun setNotationType(type: NotationType) {
         context.dataStore.edit { it[Keys.NOTATION_TYPE] = type.name }
@@ -93,5 +95,10 @@ class UserPreferencesRepository(private val context: Context) {
 
     suspend fun setVisibleKeysCount(count: Int) {
         context.dataStore.edit { it[Keys.VISIBLE_KEYS_COUNT] = count.coerceIn(7, 28) }
+    }
+
+    suspend fun setAppLanguage(languageCode: String) {
+        val normalized = if (languageCode == "vi") "vi" else "en"
+        context.dataStore.edit { it[Keys.APP_LANGUAGE] = normalized }
     }
 }

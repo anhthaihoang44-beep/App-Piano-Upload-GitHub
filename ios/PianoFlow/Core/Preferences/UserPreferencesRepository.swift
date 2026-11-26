@@ -16,6 +16,7 @@ public final class UserPreferencesRepository: ObservableObject {
         static let streakDays = "streak_days"
         static let isPremium = "is_premium"
         static let visibleKeysCount = "visible_keys_count"
+        static let appLanguage = "app_language"
     }
 
     private let defaults: UserDefaults
@@ -31,6 +32,7 @@ public final class UserPreferencesRepository: ObservableObject {
     @Published public private(set) var streakDays: Int
     @Published public private(set) var isPremium: Bool
     @Published public private(set) var visibleKeysCount: Int
+    @Published public private(set) var appLanguage: String
 
     public init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
@@ -52,6 +54,8 @@ public final class UserPreferencesRepository: ObservableObject {
         self.streakDays = defaults.object(forKey: Keys.streakDays) as? Int ?? 1
         self.isPremium = defaults.object(forKey: Keys.isPremium) as? Bool ?? false
         self.visibleKeysCount = defaults.object(forKey: Keys.visibleKeysCount) as? Int ?? 14
+        let savedLang = defaults.string(forKey: Keys.appLanguage)
+        self.appLanguage = (savedLang == "vi") ? "vi" : "en"
     }
 
     public func setNotationType(_ type: NotationType) {
@@ -109,5 +113,11 @@ public final class UserPreferencesRepository: ObservableObject {
         let clamped = min(max(count, 7), 28)
         visibleKeysCount = clamped
         defaults.set(clamped, forKey: Keys.visibleKeysCount)
+    }
+
+    public func setAppLanguage(_ languageCode: String) {
+        let normalized = (languageCode == "vi") ? "vi" : "en"
+        appLanguage = normalized
+        defaults.set(normalized, forKey: Keys.appLanguage)
     }
 }

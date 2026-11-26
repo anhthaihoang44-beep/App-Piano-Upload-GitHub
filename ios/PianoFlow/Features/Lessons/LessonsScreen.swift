@@ -31,6 +31,7 @@ public struct LessonsScreen: View {
     }
 
     public var body: some View {
+        let _ = preferencesRepository.appLanguage
         VStack(spacing: 14) {
             HStack(alignment: .center) {
                 VStack(alignment: .leading, spacing: 4) {
@@ -125,10 +126,10 @@ private struct LessonItemCard: View {
                 }
 
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(lesson.title)
+                    Text(L10n.tr(lesson.titleKey))
                         .font(.headline)
                         .foregroundColor((isUnlocked || isVipGated) ? .white : .gray)
-                    Text(lesson.description)
+                    Text(L10n.tr(lesson.descriptionKey))
                         .font(.caption)
                         .foregroundColor(.gray)
                         .lineLimit(1)

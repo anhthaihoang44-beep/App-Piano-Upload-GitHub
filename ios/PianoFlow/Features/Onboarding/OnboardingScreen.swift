@@ -19,7 +19,30 @@ public struct OnboardingScreen: View {
 
     public var body: some View {
         VStack(spacing: 0) {
-            Spacer().frame(height: 32)
+            HStack {
+                Spacer()
+                HStack(spacing: 4) {
+                    LanguagePillButton(
+                        title: "EN",
+                        selected: preferencesRepository.appLanguage == "en"
+                    ) {
+                        L10n.currentLanguage = "en"
+                        preferencesRepository.setAppLanguage("en")
+                    }
+                    LanguagePillButton(
+                        title: "VI",
+                        selected: preferencesRepository.appLanguage == "vi"
+                    ) {
+                        L10n.currentLanguage = "vi"
+                        preferencesRepository.setAppLanguage("vi")
+                    }
+                }
+                .padding(3)
+                .background(PianoFlowColors.surfaceDark)
+                .clipShape(Capsule())
+            }
+
+            Spacer().frame(height: 16)
 
             HStack(spacing: 8) {
                 ForEach(0..<3, id: \.self) { index in
@@ -62,20 +85,20 @@ public struct OnboardingScreen: View {
 
                 Spacer().frame(height: 24)
 
-                let levels: [(String, String)] = [
-                    ("Beginner", L10n.tr("onboarding_level_beginner")),
-                    ("Intermediate", L10n.tr("onboarding_level_intermediate")),
-                    ("Advanced", L10n.tr("onboarding_level_advanced"))
+                let levels: [(String, String, String)] = [
+                    ("Beginner", L10n.tr("onboarding_level_beginner_title"), L10n.tr("onboarding_level_beginner")),
+                    ("Intermediate", L10n.tr("onboarding_level_intermediate_title"), L10n.tr("onboarding_level_intermediate")),
+                    ("Advanced", L10n.tr("onboarding_level_advanced_title"), L10n.tr("onboarding_level_advanced"))
                 ]
 
                 VStack(spacing: 12) {
-                    ForEach(levels, id: \.0) { level, desc in
+                    ForEach(levels, id: \.0) { key, title, desc in
                         SelectableOptionCard(
-                            title: level,
+                            title: title,
                             subtitle: desc,
-                            isSelected: selectedSkillLevel == level
+                            isSelected: selectedSkillLevel == key
                         ) {
-                            selectedSkillLevel = level
+                            selectedSkillLevel = key
                         }
                     }
                 }
@@ -96,7 +119,7 @@ public struct OnboardingScreen: View {
                 VStack(spacing: 12) {
                     ForEach(goals, id: \.0) { mins, desc in
                         SelectableOptionCard(
-                            title: "\(mins) min / day",
+                            title: L10n.format("onboarding_goal_min_per_day", mins),
                             subtitle: desc,
                             isSelected: selectedDailyMinutes == mins
                         ) {
@@ -111,7 +134,7 @@ public struct OnboardingScreen: View {
             Button {
                 handleNext()
             } label: {
-                Text(currentStep == 2 ? L10n.tr("onboarding_get_started") : "Next")
+                Text(currentStep == 2 ? L10n.tr("onboarding_get_started") : L10n.tr("common_next"))
                     .font(.headline.bold())
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -162,6 +185,25 @@ private struct SelectableOptionCard: View {
                 RoundedRectangle(cornerRadius: 14)
                     .stroke(isSelected ? PianoFlowColors.brandSecondary : .clear, lineWidth: 2)
             )
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+private struct LanguagePillButton: View {
+    let title: String
+    let selected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.caption.bold())
+                .foregroundColor(selected ? .white : .gray)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(selected ? PianoFlowColors.brandPrimary : .clear)
+                .clipShape(Capsule())
         }
         .buttonStyle(.plain)
     }

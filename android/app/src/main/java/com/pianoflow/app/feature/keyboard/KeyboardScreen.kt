@@ -330,7 +330,7 @@ fun KeyboardScreen(
             },
             confirmButton = {
                 TextButton(onClick = { showVolumeDialog = false }) {
-                    Text("OK", color = BrandSecondary)
+                    Text(stringResource(R.string.common_ok), color = BrandSecondary)
                 }
             },
             containerColor = SurfaceDark
@@ -344,7 +344,7 @@ fun KeyboardScreen(
             title = { Text(stringResource(R.string.recordings_save_dialog_title)) },
             text = {
                 Column {
-                    Text("$recordingNoteCount notes recorded (${(recordingSaveDurationMs / 1000).toInt()}s)")
+                    Text(stringResource(R.string.keyboard_notes_recorded, recordingNoteCount, (recordingSaveDurationMs / 1000).toInt()))
                     Spacer(modifier = Modifier.height(8.dp))
                     OutlinedTextField(
                         value = recordingTitleInput,

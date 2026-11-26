@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -40,7 +40,7 @@ fun PrivacyPolicyScreen(onBack: () -> Unit) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = onBack) {
-                Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.common_back), tint = Color.White)
             }
             Text(
                 text = stringResource(R.string.profile_privacy),
@@ -53,19 +53,14 @@ fun PrivacyPolicyScreen(onBack: () -> Unit) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "PianoFlow Privacy Policy",
+            text = stringResource(R.string.legal_privacy_heading),
             style = MaterialTheme.typography.titleLarge,
             color = Color.White,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = "Last updated: September 2026\n\n" +
-                    "Your privacy is important to us. PianoFlow does not collect, sell, or transmit any personal data or recorded melodies to external servers without your permission.\n\n" +
-                    "1. Local Storage: All song scores, lesson progress, and recorded piano files are stored securely on your local device using Android Room and DataStore.\n\n" +
-                    "2. Audio & Recordings: Audio recordings are processed on-device and only exported or shared when you explicitly initiate the Android ShareSheet.\n\n" +
-                    "3. Subscriptions & Billing: In-app purchases are securely processed through Google Play Billing. We do not store your credit card or payment credentials.\n\n" +
-                    "4. Contact: For privacy questions, contact support@pianoflow.app.",
+            text = stringResource(R.string.legal_privacy_body),
             style = MaterialTheme.typography.bodyMedium,
             color = Color.LightGray
         )
@@ -86,7 +81,7 @@ fun TermsOfServiceScreen(onBack: () -> Unit) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = onBack) {
-                Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.common_back), tint = Color.White)
             }
             Text(
                 text = stringResource(R.string.profile_terms),
@@ -99,19 +94,14 @@ fun TermsOfServiceScreen(onBack: () -> Unit) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "PianoFlow Terms of Service",
+            text = stringResource(R.string.legal_terms_heading),
             style = MaterialTheme.typography.titleLarge,
             color = Color.White,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = "Last updated: September 2026\n\n" +
-                    "By downloading or using PianoFlow, you agree to the following terms:\n\n" +
-                    "1. License: PianoFlow grants you a revocable, non-exclusive, non-transferable personal license to learn and play piano for personal entertainment and educational use.\n\n" +
-                    "2. Songs & Intellectual Property: All musical arrangements included within the application are in the public domain or independently created. You own full rights to original songs you compose and record using PianoFlow.\n\n" +
-                    "3. Subscriptions: PianoFlow Premium provides recurring weekly, monthly, and yearly options. Subscriptions automatically renew unless cancelled at least 24 hours prior to the end of the billing period via your Google Play account settings.\n\n" +
-                    "4. Disclaimer: The software is provided 'as is' without warranties of any kind.",
+            text = stringResource(R.string.legal_terms_body),
             style = MaterialTheme.typography.bodyMedium,
             color = Color.LightGray
         )

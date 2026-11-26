@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">PianoFlow</string>
 
+    <!-- Common -->
+    <string name="common_ok">Đồng ý</string>
+    <string name="common_next">Tiếp theo</string>
+    <string name="common_done">Xong</string>
+    <string name="common_continue">Tiếp tục</string>
+    <string name="common_back">Quay lại</string>
+    <string name="common_close">Đóng</string>
+
     <!-- Navigation -->
     <string name="nav_play">Chơi đàn</string>
     <string name="nav_lessons">Bài học</string>
@@ -23,8 +31,18 @@
     <string name="keyboard_zoom_out">Thu nhỏ</string>
     <string name="keyboard_reset_zoom">Mặc định</string>
     <string name="keyboard_loading_audio">Đang tải âm thanh đàn Piano…</string>
+    <string name="keyboard_double_range">Hàng trên: C4–C6  |  Hàng dưới: C2–C4</string>
+    <string name="keyboard_player_1_top">Người chơi 1 (Trên)</string>
+    <string name="keyboard_player_2_bottom">Người chơi 2 (Dưới)</string>
+    <string name="keyboard_notes_recorded">Đã ghi %1$d nốt (%2$ds)</string>
 
     <!-- Song Player -->
+    <string name="songs_subtitle">Chinh phục các tác phẩm kinh điển từng bước</string>
+    <string name="songs_filter_all">Tất cả</string>
+    <string name="songs_filter_easy">Dễ</string>
+    <string name="songs_filter_intermediate">Trung bình</string>
+    <string name="songs_filter_medium">Vừa</string>
+    <string name="songs_filter_hard">Khó</string>
     <string name="song_mode_watch">Xem mẫu</string>
     <string name="song_mode_follow">Chờ phím</string>
     <string name="song_mode_perform">Biểu diễn</string>
@@ -33,6 +51,14 @@
     <string name="song_hand_right">Tay phải</string>
     <string name="song_hand_left">Tay trái</string>
     <string name="song_score">Điểm số</string>
+    <string name="song_score_value">Điểm: %1$d</string>
+    <string name="song_combo_value">CHUỖI %1$d!</string>
+    <string name="song_accuracy_value">Độ chuẩn xác: %1$d%%</string>
+    <string name="song_max_combo_value">Chuỗi tối đa: %1$d</string>
+    <string name="song_hits_breakdown">Hoàn hảo: %1$d  |  Tốt: %2$d  |  Trượt: %3$d</string>
+    <string name="song_hit_perfect">HOÀN HẢO</string>
+    <string name="song_hit_good">TỐT</string>
+    <string name="song_hit_miss">TRƯỢT</string>
     <string name="song_combo">Chuỗi</string>
     <string name="song_accuracy">Độ chuẩn xác</string>
     <string name="song_great_job">Tuyệt vời!</string>
@@ -54,9 +80,63 @@
     <string name="lessons_lesson_completed">Hoàn thành bài học!</string>
     <string name="lessons_xp_earned">+%1$d Điểm thưởng XP</string>
     <string name="lessons_locked">Đang khóa — Hãy hoàn thành bài trước</string>
+    <string name="lessons_instruction_label">Hướng dẫn</string>
+    <string name="lessons_target_note">Nốt cần bấm: %1$s (%2$s)</string>
+    <string name="lessons_done_bang">Hoàn tất!</string>
+    <string name="lessons_step_progress">Bước %1$d / %2$d</string>
+
+    <!-- Lesson Items -->
+    <string name="lesson_1_title">Tìm nốt Đô giữa (C4)</string>
+    <string name="lesson_1_desc">Điểm tựa trung tâm trên bàn phím piano.</string>
+    <string name="lesson_1_inst">Nốt C4 (Đô4) nằm ngay bên trái cụm hai phím đen ở giữa đàn. Hãy bấm phím C4 để bắt đầu!</string>
+
+    <string name="lesson_2_title">Bộ ba đầu tiên: C, D, E</string>
+    <string name="lesson_2_desc">Làm quen với ba phím trắng liên tiếp đầu tiên.</string>
+    <string name="lesson_2_inst">Đặt ngón tay lên C4, D4 và E4. Bấm lần lượt từ trái sang phải: C -> D -> E.</string>
+
+    <string name="lesson_3_title">Phím đen: C# và D#</string>
+    <string name="lesson_3_desc">Khám phá dấu thăng và cụm hai phím đen đặc trưng.</string>
+    <string name="lesson_3_inst">Hai phím đen phía trên C và D là C# và D#. Hãy bấm lần lượt C4, C#4, D4, D#4.</string>
+
+    <string name="lesson_4_title">Ngũ âm 5 ngón (C–G)</string>
+    <string name="lesson_4_desc">Sử dụng đồng đều cả năm ngón tay trên một vị trí.</string>
+    <string name="lesson_4_inst">Đặt ngón Cái (1) vào C, Trỏ (2) vào D, Giữa (3) vào E, Áp út (4) vào F, Út (5) vào G. Bấm C -> D -> E -> F -> G.</string>
+
+    <string name="lesson_5_title">Giai điệu Ode to Joy</string>
+    <string name="lesson_5_desc">Chơi giai điệu bất hủ của Beethoven bằng thế tay 5 ngón.</string>
+    <string name="lesson_5_inst">Chơi câu nhạc mở đầu: E -> E -> F -> G -> G -> F -> E -> D.</string>
+
+    <string name="lesson_6_title">Đô trầm (C3) &amp; Âm vực thấp</string>
+    <string name="lesson_6_desc">Đặt tay trái thấp hơn một quãng tám để giữ nhịp nền.</string>
+    <string name="lesson_6_inst">Tìm nốt C3 (Đô3) lệch về bên trái một quãng tám. Bấm C3 bằng ngón út tay trái.</string>
+
+    <string name="lesson_7_title">Sức mạnh quãng 5 (C &amp; G)</string>
+    <string name="lesson_7_desc">Quãng đệm nền tảng trong âm nhạc hiện đại.</string>
+    <string name="lesson_7_inst">Chơi nốt trầm C3 rồi đến G3 để cảm nhận độ vang đầy đặn!</string>
+
+    <string name="lesson_8_title">Phối hợp hai tay</string>
+    <string name="lesson_8_desc">Kết hợp âm trầm tay trái với giai điệu tay phải.</string>
+    <string name="lesson_8_inst">Bấm C3 bằng tay trái, tiếp theo C4 bằng tay phải: C3 -> C4 -> G3 -> G4.</string>
+
+    <string name="lesson_9_title">Hợp âm Đô trưởng (C Major)</string>
+    <string name="lesson_9_desc">Hợp âm ba phổ biến nhất trong hòa âm phương Tây.</string>
+    <string name="lesson_9_inst">Bấm lần lượt C4, E4 và G4 để tạo thành hợp âm Đô trưởng: C -> E -> G.</string>
+
+    <string name="lesson_10_title">Hợp âm Sol trưởng (G Major)</string>
+    <string name="lesson_10_desc">Hợp âm át luôn dẫn giai điệu quay về C.</string>
+    <string name="lesson_10_inst">Bấm lần lượt G3, B3 và D4: G -> B -> D.</string>
+
+    <string name="lesson_11_title">Tinh hoa Canon in D</string>
+    <string name="lesson_11_desc">Chơi tuyến giai điệu đi xuống kinh điển của Pachelbel.</string>
+    <string name="lesson_11_inst">Bấm chuỗi nốt đặc trưng: D -> C# -> B -> A.</string>
+
+    <string name="lesson_12_title">Đoạn mở đầu Für Elise</string>
+    <string name="lesson_12_desc">Mô-típ luân phiên khó quên của Beethoven.</string>
+    <string name="lesson_12_inst">Chơi câu nhạc nổi tiếng: E5 -> D#5 -> E5 -> D#5 -> E5 -> B4 -> D5 -> C5 -> A4.</string>
 
     <!-- Recordings -->
     <string name="recordings_title">Bản ghi của tôi</string>
+    <string name="recordings_subtitle">Nghe lại và chia sẻ phần trình diễn của bạn</string>
     <string name="recordings_start">Ghi âm</string>
     <string name="recordings_stop">Dừng</string>
     <string name="recordings_recording">Đang ghi âm…</string>
@@ -68,6 +148,11 @@
     <string name="recordings_share">Chia sẻ</string>
     <string name="recordings_export_wav">Đang xuất file WAV…</string>
     <string name="recordings_delete">Xóa</string>
+    <string name="recordings_replay_subtitle">Phát lại bản ghi</string>
+    <string name="recordings_meta_line">%1$s  |  %2$s  |  %3$d nốt</string>
+    <string name="recordings_share_subject">Bản ghi PianoFlow: %1$s</string>
+    <string name="recordings_share_text">Nghe phần trình diễn piano của tôi trên PianoFlow! 🎹</string>
+    <string name="recordings_share_chooser">Chia sẻ bản ghi Piano</string>
 
     <!-- Paywall & Subscriptions -->
     <string name="paywall_title">Nâng cấp PianoFlow VIP</string>
@@ -79,31 +164,65 @@
     <string name="paywall_plan_weekly">Gói Tuần / 69.000đ</string>
     <string name="paywall_plan_monthly">Gói Tháng / 189.000đ (Phổ biến)</string>
     <string name="paywall_plan_yearly">Gói Năm / 899.000đ (Tiết kiệm nhất)</string>
+    <string name="paywall_plan_weekly_title">VIP Tuần</string>
+    <string name="paywall_plan_weekly_period">mỗi tuần</string>
+    <string name="paywall_plan_monthly_title">VIP Tháng</string>
+    <string name="paywall_plan_monthly_period">mỗi tháng</string>
+    <string name="paywall_plan_yearly_title">VIP Năm</string>
+    <string name="paywall_plan_yearly_period">mỗi năm (Tiết kiệm 60%)</string>
+    <string name="paywall_popular_badge">PHỔ BIẾN</string>
     <string name="paywall_subscribe_now">Dùng thử 7 ngày miễn phí</string>
     <string name="paywall_restore">Khôi phục gói mua</string>
     <string name="paywall_premium_badge">VIP</string>
     <string name="paywall_premium_active">Gói PianoFlow VIP đang hoạt động</string>
+    <string name="paywall_banner_active_sub">Đã mở khóa tất cả tính năng</string>
+    <string name="paywall_banner_inactive_sub">Chạm để mở khóa không giới hạn</string>
 
     <!-- Profile & Settings -->
     <string name="profile_title">Hồ sơ &amp; Cài đặt</string>
     <string name="profile_xp">Tổng điểm XP</string>
     <string name="profile_streak">Chuỗi ngày học</string>
+    <string name="profile_streak_days">%1$d ngày</string>
+    <string name="profile_lessons_passed">Bài học hoàn thành</string>
     <string name="profile_songs_played">Bài hát đã chơi</string>
+    <string name="profile_weekly_activity">Hoạt động trong tuần</string>
+    <string name="profile_settings_header">Cài đặt</string>
+    <string name="profile_language">Ngôn ngữ</string>
+    <string name="profile_language_en">English</string>
+    <string name="profile_language_vi">Tiếng Việt</string>
     <string name="profile_daily_reminder">Nhắc nhở luyện tập mỗi ngày</string>
     <string name="profile_reminder_time">Giờ nhắc nhở (20:00)</string>
     <string name="profile_haptics">Rung phản hồi khi chạm phím</string>
     <string name="profile_sound_latency">Độ trễ âm thanh siêu thấp</string>
+    <string name="profile_sound_latency_desc">Âm thanh độ trễ dưới 50ms</string>
     <string name="profile_privacy">Chính sách bảo mật</string>
     <string name="profile_terms">Điều khoản sử dụng</string>
+    <string name="day_mon">T2</string>
+    <string name="day_tue">T3</string>
+    <string name="day_wed">T4</string>
+    <string name="day_thu">T5</string>
+    <string name="day_fri">T6</string>
+    <string name="day_sat">T7</string>
+    <string name="day_sun">CN</string>
+
+    <!-- Legal -->
+    <string name="legal_privacy_heading">Chính sách bảo mật PianoFlow</string>
+    <string name="legal_privacy_body">Cập nhật lần cuối: Tháng 9/2026\n\nQuyền riêng tư của bạn rất quan trọng với chúng tôi. PianoFlow không thu thập, bán hay gửi dữ liệu cá nhân hoặc bản ghi âm của bạn lên máy chủ bên ngoài khi chưa có sự cho phép.\n\n1. Lưu trữ cục bộ: Toàn bộ điểm số, tiến độ bài học và bản ghi piano được lưu an toàn ngay trên thiết bị của bạn.\n\n2. Âm thanh &amp; Bản ghi: Âm thanh được xử lý trực tiếp trên thiết bị và chỉ xuất hoặc chia sẻ khi bạn chủ động nhấn Chia sẻ.\n\n3. Gói đăng ký &amp; Thanh toán: Giao dịch mua trong ứng dụng được xử lý bảo mật qua hệ thống thanh toán chính thức của cửa hàng ứng dụng. Chúng tôi không lưu thông tin thẻ thanh toán của bạn.\n\n4. Liên hệ: Mọi thắc mắc về quyền riêng tư vui lòng gửi về support@pianoflow.app.</string>
+    <string name="legal_terms_heading">Điều khoản sử dụng PianoFlow</string>
+    <string name="legal_terms_body">Cập nhật lần cuối: Tháng 9/2026\n\nKhi tải xuống hoặc sử dụng PianoFlow, bạn đồng ý với các điều khoản sau:\n\n1. Giấy phép: PianoFlow cấp cho bạn quyền sử dụng cá nhân, không độc quyền để học tập và giải trí với đàn piano.\n\n2. Bài hát &amp; Bản quyền: Các bản phối có sẵn trong ứng dụng thuộc phạm vi công cộng hoặc được biên soạn độc lập. Bạn toàn quyền sở hữu các giai điệu do chính mình sáng tác và ghi âm trên PianoFlow.\n\n3. Gói đăng ký: PianoFlow Premium cung cấp các gói định kỳ theo tuần, tháng và năm. Gói đăng ký tự động gia hạn trừ khi được hủy ít nhất 24 giờ trước khi kết thúc chu kỳ trong cài đặt tài khoản.\n\n4. Miễn trừ trách nhiệm: Phần mềm được cung cấp theo nguyên trạng.</string>
 
     <!-- Onboarding -->
     <string name="onboarding_step1_title">Chào mừng đến với PianoFlow</string>
     <string name="onboarding_step1_desc">Học piano thật tự nhiên và thú vị qua các phím đàn trực quan và phản hồi tức thì.</string>
     <string name="onboarding_step2_title">Trình độ hiện tại của bạn?</string>
+    <string name="onboarding_level_beginner_title">Mới bắt đầu</string>
+    <string name="onboarding_level_intermediate_title">Trung cấp</string>
+    <string name="onboarding_level_advanced_title">Nâng cao</string>
     <string name="onboarding_level_beginner">Mới bắt đầu (Chưa từng chơi)</string>
     <string name="onboarding_level_intermediate">Trung cấp (Biết các nốt cơ bản)</string>
     <string name="onboarding_level_advanced">Nâng cao (Có thể chơi bài hát)</string>
     <string name="onboarding_step3_title">Mục tiêu luyện tập mỗi ngày</string>
+    <string name="onboarding_goal_min_per_day">%1$d phút / ngày</string>
     <string name="onboarding_goal_casual">5 phút / ngày (Nhẹ nhàng)</string>
     <string name="onboarding_goal_regular">15 phút / ngày (Khuyên dùng)</string>
     <string name="onboarding_goal_serious">30 phút / ngày (Chuyên sâu)</string>
@@ -113,4 +232,5 @@
     <string name="reminder_notification_title">Đến giờ luyện đàn rồi! 🎹</string>
     <string name="reminder_notification_body">Duy trì chuỗi ngày của bạn! Dành 10 phút hôm nay để nâng cao kỹ năng nhé.</string>
     <string name="notification_channel_name">Nhắc nhở luyện tập</string>
+    <string name="notification_channel_desc">Nhắc nhở hàng ngày giúp duy trì chuỗi luyện tập piano</string>
 </resources>

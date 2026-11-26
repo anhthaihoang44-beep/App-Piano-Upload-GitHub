@@ -26,7 +26,7 @@ public struct DoubleKeyboardScreen: View {
 
                 Spacer()
 
-                Text("Upper: C4–C6  |  Lower: C2–C4")
+                Text(L10n.tr("keyboard_double_range"))
                     .font(.caption2)
                     .foregroundColor(PianoFlowColors.brandSecondary)
             }

@@ -73,7 +73,7 @@ fun TwoPlayerKeyboardScreen(
                 Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
             }
             Text(
-                text = "Player 1 (Top)",
+                text = stringResource(R.string.keyboard_player_1_top),
                 style = MaterialTheme.typography.labelSmall,
                 color = BrandTertiary
             )
@@ -85,7 +85,7 @@ fun TwoPlayerKeyboardScreen(
             )
             Spacer(modifier = Modifier.weight(1f))
             Text(
-                text = "Player 2 (Bottom)",
+                text = stringResource(R.string.keyboard_player_2_bottom),
                 style = MaterialTheme.typography.labelSmall,
                 color = BrandSecondary
             )

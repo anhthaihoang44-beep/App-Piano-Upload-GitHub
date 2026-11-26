@@ -60,7 +60,7 @@ fun DoubleKeyboardScreen(
             )
             Spacer(modifier = Modifier.weight(1f))
             Text(
-                text = "Upper: C4–C6  |  Lower: C2–C4",
+                text = stringResource(R.string.keyboard_double_range),
                 style = MaterialTheme.typography.labelSmall,
                 color = BrandSecondary
             )

@@ -37,7 +37,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.pianoflow.app.R
 import com.pianoflow.app.core.audio.AudioEngine
 import com.pianoflow.app.core.audio.NotationType
 import com.pianoflow.app.core.database.entity.RecordingEntity
@@ -162,7 +164,7 @@ fun RecordingReplayScreen(
                     color = Color.White
                 )
                 Text(
-                    text = "Recording Replay",
+                    text = stringResource(R.string.recordings_replay_subtitle),
                     style = MaterialTheme.typography.labelSmall,
                     color = BrandSecondary
                 )

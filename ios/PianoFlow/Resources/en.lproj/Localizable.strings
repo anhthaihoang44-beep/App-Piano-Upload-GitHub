@@ -1,5 +1,13 @@
 "app_name" = "PianoFlow";
 
+/* Common */
+"common_ok" = "OK";
+"common_next" = "Next";
+"common_done" = "Done";
+"common_continue" = "Continue";
+"common_back" = "Back";
+"common_close" = "Close";
+
 /* Navigation */
 "nav_play" = "Play";
 "nav_lessons" = "Lessons";
@@ -22,16 +30,34 @@
 "keyboard_zoom_out" = "Zoom -";
 "keyboard_reset_zoom" = "Reset Zoom";
 "keyboard_loading_audio" = "Preloading Piano Samples…";
+"keyboard_double_range" = "Upper: C4–C6  |  Lower: C2–C4";
+"keyboard_player_1_top" = "Player 1 (Top)";
+"keyboard_player_2_bottom" = "Player 2 (Bottom)";
+"keyboard_notes_recorded" = "%d notes recorded (%ds)";
 
 /* Song Player */
+"songs_subtitle" = "Master classic masterpieces step by step";
+"songs_filter_all" = "All";
+"songs_filter_easy" = "Easy";
+"songs_filter_intermediate" = "Intermediate";
+"songs_filter_medium" = "Medium";
+"songs_filter_hard" = "Hard";
 "song_mode_watch" = "Watch";
 "song_mode_follow" = "Follow";
 "song_mode_perform" = "Perform";
 "song_speed" = "Speed";
-"song_hand_both" = "Both Hands";
-"song_hand_right" = "Right Hand";
-"song_hand_left" = "Left Hand";
+"song_hand_both" = "Both";
+"song_hand_right" = "Right";
+"song_hand_left" = "Left";
 "song_score" = "Score";
+"song_score_value" = "Score: %d";
+"song_combo_value" = "%d COMBO!";
+"song_accuracy_value" = "Accuracy: %d%%";
+"song_max_combo_value" = "Max Combo: %d";
+"song_hits_breakdown" = "Perfect: %d  |  Good: %d  |  Miss: %d";
+"song_hit_perfect" = "PERFECT";
+"song_hit_good" = "GOOD";
+"song_hit_miss" = "MISS";
 "song_combo" = "Combo";
 "song_accuracy" = "Accuracy";
 "song_great_job" = "Great Performance!";
@@ -53,9 +79,63 @@
 "lessons_lesson_completed" = "Lesson Complete!";
 "lessons_xp_earned" = "+%d XP Earned";
 "lessons_locked" = "Locked — Complete previous lessons";
+"lessons_instruction_label" = "Instruction";
+"lessons_target_note" = "Target Note: %@ (%@)";
+"lessons_done_bang" = "Done!";
+"lessons_step_progress" = "Step %d / %d";
+
+/* Lesson Items */
+"lesson_1_title" = "Find Middle C";
+"lesson_1_desc" = "The central home base of the piano keyboard.";
+"lesson_1_inst" = "Middle C (C4) is located directly to the left of the group of two black keys near the center. Press Middle C to start!";
+
+"lesson_2_title" = "The First Trio: C, D, E";
+"lesson_2_desc" = "Learn your first three consecutive white keys.";
+"lesson_2_inst" = "Place your fingers on C4, D4, and E4. Play them in order from left to right: C -> D -> E.";
+
+"lesson_3_title" = "Black Keys: C# and D#";
+"lesson_3_desc" = "Discover sharps and the distinctive twin black keys.";
+"lesson_3_inst" = "The two black keys above C and D are C# (sharp) and D#. Play C4, C#4, D4, D#4.";
+
+"lesson_4_title" = "5-Finger Pentascale (C–G)";
+"lesson_4_desc" = "Use all five fingers on one position.";
+"lesson_4_inst" = "Assign Thumb (1) to C, Index (2) to D, Middle (3) to E, Ring (4) to F, Pinky (5) to G. Play C -> D -> E -> F -> G.";
+
+"lesson_5_title" = "Ode to Joy Theme";
+"lesson_5_desc" = "Play Beethoven's beloved melody using the 5-finger position.";
+"lesson_5_inst" = "Play the opening phrase: E -> E -> F -> G -> G -> F -> E -> D.";
+
+"lesson_6_title" = "Bass C & Low Register";
+"lesson_6_desc" = "Anchor your left hand an octave lower.";
+"lesson_6_inst" = "Look one octave to the left for Bass C (C3). Press C3 with your left hand pinky.";
+
+"lesson_7_title" = "The Power of the 5th (C & G)";
+"lesson_7_desc" = "The foundational accompaniment interval in modern music.";
+"lesson_7_inst" = "Play Bass C (C3) followed by Bass G (G3): low and resonant!";
+
+"lesson_8_title" = "Two-Hand Synchronization";
+"lesson_8_desc" = "Combine Left Hand Bass with Right Hand Melody.";
+"lesson_8_inst" = "Play C3 with Left Hand, then C4 with Right Hand: C3 -> C4 -> G3 -> G4.";
+
+"lesson_9_title" = "The C Major Triad";
+"lesson_9_desc" = "The most famous chord in Western harmony.";
+"lesson_9_inst" = "Play C4, E4, and G4 in sequence to build the C Major chord: C -> E -> G.";
+
+"lesson_10_title" = "The G Major Triad";
+"lesson_10_desc" = "The dominant chord that always resolves back to C.";
+"lesson_10_inst" = "Play G3, B3, and D4: G -> B -> D.";
+
+"lesson_11_title" = "Canon in D Mastery";
+"lesson_11_desc" = "Play Pachelbel's descending bassline and harmony.";
+"lesson_11_inst" = "Play the iconic progression notes: D -> C# -> B -> A.";
+
+"lesson_12_title" = "Für Elise Signature Hook";
+"lesson_12_desc" = "Beethoven's unforgettable alternating motif.";
+"lesson_12_inst" = "Play the famous phrase: E5 -> D#5 -> E5 -> D#5 -> E5 -> B4 -> D5 -> C5 -> A4.";
 
 /* Recordings */
 "recordings_title" = "My Recordings";
+"recordings_subtitle" = "Replay and share your piano performances";
 "recordings_start" = "Record";
 "recordings_stop" = "Stop";
 "recordings_recording" = "Recording…";
@@ -67,6 +147,9 @@
 "recordings_share" = "Share";
 "recordings_export_wav" = "Exporting WAV…";
 "recordings_delete" = "Delete";
+"recordings_replay_subtitle" = "Recording Replay";
+"recordings_meta_line" = "%@  |  %@  |  %d notes";
+"recordings_share_text" = "Listen to my piano performance on PianoFlow! 🎹";
 
 /* Paywall & Subscriptions */
 "paywall_title" = "Unlock PianoFlow Premium";
@@ -78,31 +161,65 @@
 "paywall_plan_weekly" = "Weekly / $2.99";
 "paywall_plan_monthly" = "Monthly / $7.99 (Popular)";
 "paywall_plan_yearly" = "Yearly / $39.99 (Best Value)";
+"paywall_plan_weekly_title" = "Weekly VIP";
+"paywall_plan_weekly_period" = "per week";
+"paywall_plan_monthly_title" = "Monthly VIP";
+"paywall_plan_monthly_period" = "per month";
+"paywall_plan_yearly_title" = "Yearly VIP";
+"paywall_plan_yearly_period" = "per year (Save 60%)";
+"paywall_popular_badge" = "POPULAR";
 "paywall_subscribe_now" = "Start 7-Day Free Trial";
 "paywall_restore" = "Restore Purchases";
 "paywall_premium_badge" = "PREMIUM";
 "paywall_premium_active" = "PianoFlow Premium Active";
+"paywall_banner_active_sub" = "All features unlocked";
+"paywall_banner_inactive_sub" = "Tap to unlock unlimited access";
 
 /* Profile & Settings */
 "profile_title" = "Profile & Settings";
 "profile_xp" = "Total XP";
 "profile_streak" = "Day Streak";
+"profile_streak_days" = "%d Days";
+"profile_lessons_passed" = "Lessons Passed";
 "profile_songs_played" = "Songs Played";
+"profile_weekly_activity" = "Weekly Activity";
+"profile_settings_header" = "Settings";
+"profile_language" = "Language";
+"profile_language_en" = "English";
+"profile_language_vi" = "Tiếng Việt";
 "profile_daily_reminder" = "Daily Practice Reminder";
 "profile_reminder_time" = "Reminder Time (8:00 PM)";
 "profile_haptics" = "Haptic Feedback on Touch";
 "profile_sound_latency" = "Low Latency Audio";
+"profile_sound_latency_desc" = "Sub-15ms Low-Latency AVAudioEngine";
 "profile_privacy" = "Privacy Policy";
 "profile_terms" = "Terms of Service";
+"day_mon" = "Mon";
+"day_tue" = "Tue";
+"day_wed" = "Wed";
+"day_thu" = "Thu";
+"day_fri" = "Fri";
+"day_sat" = "Sat";
+"day_sun" = "Sun";
+
+/* Legal */
+"legal_privacy_heading" = "PianoFlow Privacy Policy";
+"legal_privacy_body" = "Last updated: September 2026\n\nYour privacy is important to us. PianoFlow does not collect, sell, or transmit any personal data or recorded melodies to external servers without your permission.\n\n1. Local Storage: All song scores, lesson progress, and recorded piano files are stored securely on your local device using Apple SwiftData and UserDefaults.\n\n2. Audio & Recordings: Audio recordings are processed on-device and only exported or shared when you explicitly initiate the iOS Share Sheet.\n\n3. Subscriptions & Billing: In-app purchases are securely processed through Apple StoreKit 2 and the App Store. We do not store your credit card or payment credentials.\n\n4. Contact: For privacy questions, contact support@pianoflow.app.";
+"legal_terms_heading" = "PianoFlow Terms of Service";
+"legal_terms_body" = "Last updated: September 2026\n\nBy downloading or using PianoFlow, you agree to the following terms:\n\n1. License: PianoFlow grants you a revocable, non-exclusive, non-transferable personal license to learn and play piano for personal entertainment and educational use.\n\n2. Songs & Intellectual Property: All musical arrangements included within the application are in the public domain or independently created. You own full rights to original songs you compose and record using PianoFlow.\n\n3. Subscriptions: PianoFlow Premium provides recurring weekly, monthly, and yearly options. Subscriptions automatically renew unless cancelled at least 24 hours prior to the end of the billing period via your Apple ID subscription settings.\n\n4. Disclaimer: The software is provided 'as is' without warranties of any kind.";
 
 /* Onboarding */
 "onboarding_step1_title" = "Welcome to PianoFlow";
 "onboarding_step1_desc" = "Learn piano the fun, natural way with interactive visual notes and real-time feedback.";
 "onboarding_step2_title" = "What is your skill level?";
+"onboarding_level_beginner_title" = "Beginner";
+"onboarding_level_intermediate_title" = "Intermediate";
+"onboarding_level_advanced_title" = "Advanced";
 "onboarding_level_beginner" = "Beginner (Never played before)";
 "onboarding_level_intermediate" = "Intermediate (Know some basics)";
 "onboarding_level_advanced" = "Advanced (Can play songs)";
 "onboarding_step3_title" = "Set your daily practice goal";
+"onboarding_goal_min_per_day" = "%d min / day";
 "onboarding_goal_casual" = "5 min / day (Casual)";
 "onboarding_goal_regular" = "15 min / day (Recommended)";
 "onboarding_goal_serious" = "30 min / day (Intensive)";

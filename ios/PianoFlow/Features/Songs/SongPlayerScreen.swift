@@ -130,14 +130,14 @@ public struct SongPlayerScreen: View {
 
     private var performHud: some View {
         HStack {
-            Text("\(L10n.tr("song_score")): \(viewModel.score)")
+            Text(L10n.format("song_score_value", viewModel.score))
                 .font(.subheadline.bold())
                 .foregroundColor(PianoFlowColors.brandSecondary)
 
             Spacer()
 
             if viewModel.currentCombo > 1 {
-                Text("\(viewModel.currentCombo) COMBO!")
+                Text(L10n.format("song_combo_value", viewModel.currentCombo))
                     .font(.subheadline.weight(.heavy))
                     .foregroundColor(PianoFlowColors.brandPrimary)
             }
@@ -145,7 +145,14 @@ public struct SongPlayerScreen: View {
             Spacer()
 
             if let rating = viewModel.lastHitRating {
-                Text(rating.rawValue)
+                let ratingText: String = {
+                    switch rating {
+                    case .perfect: return L10n.tr("song_hit_perfect")
+                    case .good: return L10n.tr("song_hit_good")
+                    case .miss: return L10n.tr("song_hit_miss")
+                    }
+                }()
+                Text(ratingText)
                     .font(.caption.bold())
                     .foregroundColor(rating == .perfect ? PianoFlowColors.goldStarColor : PianoFlowColors.brandSecondary)
             }
@@ -167,9 +174,9 @@ public struct SongPlayerScreen: View {
 
             HStack {
                 HStack(spacing: 4) {
-                    handChip(hand: .both, title: "Both", color: .white)
-                    handChip(hand: .right, title: "Right", color: PianoFlowColors.rightHandColor)
-                    handChip(hand: .left, title: "Left", color: PianoFlowColors.leftHandColor)
+                    handChip(hand: .both, title: L10n.tr("song_hand_both"), color: .white)
+                    handChip(hand: .right, title: L10n.tr("song_hand_right"), color: PianoFlowColors.rightHandColor)
+                    handChip(hand: .left, title: L10n.tr("song_hand_left"), color: PianoFlowColors.leftHandColor)
                 }
 
                 Spacer()
@@ -269,14 +276,14 @@ public struct SongPlayerScreen: View {
                 }
             }
 
-            Text("Score: \(summary.score)")
+            Text(L10n.format("song_score_value", summary.score))
                 .font(.title3.bold())
                 .foregroundColor(PianoFlowColors.brandSecondary)
-            Text("Accuracy: \(Int(summary.accuracyPercent))%")
+            Text(L10n.format("song_accuracy_value", Int(summary.accuracyPercent)))
                 .foregroundColor(.white)
-            Text("Max Combo: \(summary.maxCombo)")
+            Text(L10n.format("song_max_combo_value", summary.maxCombo))
                 .foregroundColor(.gray)
-            Text("Perfect: \(summary.perfectHits)  |  Good: \(summary.goodHits)  |  Miss: \(summary.misses)")
+            Text(L10n.format("song_hits_breakdown", summary.perfectHits, summary.goodHits, summary.misses))
                 .font(.caption)
                 .foregroundColor(.gray)
 
@@ -292,7 +299,7 @@ public struct SongPlayerScreen: View {
                 .foregroundColor(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
 
-                Button("Done") {
+                Button(L10n.tr("common_done")) {
                     viewModel.dismissSummary()
                     onBack()
                 }

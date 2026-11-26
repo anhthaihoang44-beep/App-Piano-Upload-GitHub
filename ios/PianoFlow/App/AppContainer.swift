@@ -12,10 +12,12 @@ public final class AppContainer: ObservableObject {
     public let hapticHelper: HapticHelper
 
     private var didBootstrap = false
+    private var languageCancellable: AnyCancellable?
 
     public init(inMemoryPersistence: Bool = false) {
         let store = PianoFlowDataStore(inMemory: inMemoryPersistence)
         let prefs = UserPreferencesRepository()
+        L10n.currentLanguage = prefs.appLanguage
         let audio = AVAudioPianoEngine()
         // Swap MockBillingRepository for StoreKitBillingRepository when shipping to App Store Connect.
         let billing: BillingRepositoryProtocol = MockBillingRepository(preferencesRepository: prefs)
@@ -26,6 +28,10 @@ public final class AppContainer: ObservableObject {
         self.audioEngine = audio
         self.billingRepository = billing
         self.hapticHelper = haptics
+
+        self.languageCancellable = prefs.$appLanguage.sink { lang in
+            L10n.currentLanguage = lang
+        }
     }
 
     public func bootstrap() async {

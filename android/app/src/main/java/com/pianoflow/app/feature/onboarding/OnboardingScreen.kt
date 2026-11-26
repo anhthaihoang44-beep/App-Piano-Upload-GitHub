@@ -25,6 +25,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -42,6 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pianoflow.app.R
 import com.pianoflow.app.core.datastore.UserPreferencesRepository
+import com.pianoflow.app.core.util.LocaleHelper
 import com.pianoflow.app.ui.theme.BackgroundDark
 import com.pianoflow.app.ui.theme.BrandPrimary
 import com.pianoflow.app.ui.theme.BrandSecondary
@@ -55,6 +57,7 @@ fun OnboardingScreen(
     onComplete: () -> Unit
 ) {
     val scope = rememberCoroutineScope()
+    val appLanguage by preferencesRepository.appLanguage.collectAsState(initial = LocaleHelper.LANG_EN)
     var currentStep by remember { mutableIntStateOf(0) }
     var selectedSkillLevel by remember { mutableStateOf("Beginner") }
     var selectedDailyMinutes by remember { mutableIntStateOf(15) }
@@ -79,7 +82,32 @@ fun OnboardingScreen(
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(modifier = Modifier.height(32.dp))
+        // Quick EN / VI language switcher
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.End
+        ) {
+            Row(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(SurfaceDark)
+                    .padding(3.dp),
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                LanguagePill(
+                    label = "EN",
+                    isSelected = appLanguage == LocaleHelper.LANG_EN,
+                    onClick = { scope.launch { preferencesRepository.setAppLanguage(LocaleHelper.LANG_EN) } }
+                )
+                LanguagePill(
+                    label = "VI",
+                    isSelected = appLanguage == LocaleHelper.LANG_VI,
+                    onClick = { scope.launch { preferencesRepository.setAppLanguage(LocaleHelper.LANG_VI) } }
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
 
         // Step Dots Indicator
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -98,7 +126,6 @@ fun OnboardingScreen(
         // Step Content
         when (currentStep) {
             0 -> {
-                // Step 1: Welcome & Intro
                 Box(
                     modifier = Modifier
                         .size(110.dp)
@@ -133,7 +160,6 @@ fun OnboardingScreen(
             }
 
             1 -> {
-                // Step 2: Skill Level
                 Text(
                     text = stringResource(R.string.onboarding_step2_title),
                     style = MaterialTheme.typography.headlineMedium,
@@ -144,24 +170,23 @@ fun OnboardingScreen(
                 Spacer(modifier = Modifier.height(24.dp))
 
                 val levels = listOf(
-                    "Beginner" to stringResource(R.string.onboarding_level_beginner),
-                    "Intermediate" to stringResource(R.string.onboarding_level_intermediate),
-                    "Advanced" to stringResource(R.string.onboarding_level_advanced)
+                    Triple("Beginner", stringResource(R.string.onboarding_level_beginner_title), stringResource(R.string.onboarding_level_beginner)),
+                    Triple("Intermediate", stringResource(R.string.onboarding_level_intermediate_title), stringResource(R.string.onboarding_level_intermediate)),
+                    Triple("Advanced", stringResource(R.string.onboarding_level_advanced_title), stringResource(R.string.onboarding_level_advanced))
                 )
 
-                levels.forEach { (level, desc) ->
+                levels.forEach { (key, title, desc) ->
                     SelectableOptionCard(
-                        title = level,
+                        title = title,
                         subtitle = desc,
-                        isSelected = selectedSkillLevel == level,
-                        onSelect = { selectedSkillLevel = level }
+                        isSelected = selectedSkillLevel == key,
+                        onSelect = { selectedSkillLevel = key }
                     )
                     Spacer(modifier = Modifier.height(12.dp))
                 }
             }
 
             2 -> {
-                // Step 3: Daily Goal
                 Text(
                     text = stringResource(R.string.onboarding_step3_title),
                     style = MaterialTheme.typography.headlineMedium,
@@ -179,7 +204,7 @@ fun OnboardingScreen(
 
                 goals.forEach { (mins, desc) ->
                     SelectableOptionCard(
-                        title = "$mins min / day",
+                        title = stringResource(R.string.onboarding_goal_min_per_day, mins),
                         subtitle = desc,
                         isSelected = selectedDailyMinutes == mins,
                         onSelect = { selectedDailyMinutes = mins }
@@ -191,7 +216,6 @@ fun OnboardingScreen(
 
         Spacer(modifier = Modifier.weight(1f))
 
-        // Next / Get Started Button
         Button(
             onClick = { handleNext() },
             modifier = Modifier
@@ -201,13 +225,35 @@ fun OnboardingScreen(
             colors = ButtonDefaults.buttonColors(containerColor = BrandPrimary)
         ) {
             Text(
-                text = if (currentStep == 2) stringResource(R.string.onboarding_get_started) else "Next",
+                text = if (currentStep == 2) stringResource(R.string.onboarding_get_started) else stringResource(R.string.common_next),
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
         }
 
         Spacer(modifier = Modifier.height(16.dp))
+    }
+}
+
+@Composable
+private fun LanguagePill(
+    label: String,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
+    Box(
+        modifier = Modifier
+            .clip(RoundedCornerShape(16.dp))
+            .background(if (isSelected) BrandPrimary else Color.Transparent)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 12.dp, vertical = 6.dp)
+    ) {
+        Text(
+            text = label,
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Bold,
+            color = if (isSelected) Color.White else Color.Gray
+        )
     }
 }
 

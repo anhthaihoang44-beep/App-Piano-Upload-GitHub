@@ -91,7 +91,7 @@ fun SongListScreen(
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = "Master classic masterpieces step by step",
+            text = stringResource(R.string.songs_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = Color.Gray
         )
@@ -101,10 +101,16 @@ fun SongListScreen(
         // Difficulty Filters
         LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             items(filters) { filter ->
+                val labelText = when (filter) {
+                    "Easy" -> stringResource(R.string.songs_filter_easy)
+                    "Intermediate" -> stringResource(R.string.songs_filter_intermediate)
+                    "Hard" -> stringResource(R.string.songs_filter_hard)
+                    else -> stringResource(R.string.songs_filter_all)
+                }
                 FilterChip(
                     selected = selectedFilter == filter,
                     onClick = { selectedFilter = filter },
-                    label = { Text(filter) },
+                    label = { Text(labelText) },
                     colors = FilterChipDefaults.filterChipColors(
                         selectedContainerColor = BrandPrimary,
                         selectedLabelColor = Color.White,
@@ -202,8 +208,15 @@ private fun SongItemCard(
                     }
                 }
                 Spacer(modifier = Modifier.height(2.dp))
+                val localizedDifficulty = when (song.difficulty.lowercase()) {
+                    "easy" -> stringResource(R.string.songs_filter_easy)
+                    "intermediate" -> stringResource(R.string.songs_filter_intermediate)
+                    "medium" -> stringResource(R.string.songs_filter_medium)
+                    "hard" -> stringResource(R.string.songs_filter_hard)
+                    else -> song.difficulty
+                }
                 Text(
-                    text = "${song.composer} • ${song.difficulty} • ${song.bpm} BPM",
+                    text = "${song.composer} • $localizedDifficulty • ${song.bpm} BPM",
                     style = MaterialTheme.typography.labelSmall,
                     color = Color.Gray
                 )

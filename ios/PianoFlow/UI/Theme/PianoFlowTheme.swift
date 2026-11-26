@@ -58,11 +58,26 @@ public extension UIColor {
 #endif
 
 public enum L10n {
+    public static var currentLanguage: String = "en"
+
+    private static var activeBundle: Bundle {
+        if let path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj"),
+           let bundle = Bundle(path: path) {
+            return bundle
+        }
+        return .main
+    }
+
     public static func tr(_ key: String) -> String {
-        NSLocalizedString(key, comment: "")
+        activeBundle.localizedString(forKey: key, value: nil, table: nil)
+    }
+
+    public static func format(_ key: String, _ args: CVarArg...) -> String {
+        let template = tr(key)
+        return String(format: template, arguments: args)
     }
 
     public static func xpEarned(_ xp: Int) -> String {
-        String(format: NSLocalizedString("lessons_xp_earned", comment: ""), xp)
+        format("lessons_xp_earned", xp)
     }
 }

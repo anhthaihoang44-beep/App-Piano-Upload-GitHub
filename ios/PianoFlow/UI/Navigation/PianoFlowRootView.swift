@@ -42,6 +42,7 @@ public struct PianoFlowRootView: View {
     }
 
     public var body: some View {
+        let _ = preferencesRepository.appLanguage
         Group {
             if !preferencesRepository.onboardingCompleted {
                 OnboardingScreen(preferencesRepository: container.preferencesRepository) {
@@ -127,6 +128,7 @@ public struct PianoFlowRootView: View {
                 }
             }
         }
+        .environment(\.locale, Locale(identifier: preferencesRepository.appLanguage))
     }
 
     @ViewBuilder

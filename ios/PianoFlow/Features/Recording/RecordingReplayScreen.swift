@@ -72,7 +72,7 @@ public struct RecordingReplayScreen: View {
                     Text(recording.title)
                         .font(.headline)
                         .foregroundColor(.white)
-                    Text("Recording Replay")
+                    Text(L10n.tr("recordings_replay_subtitle"))
                         .font(.caption2)
                         .foregroundColor(PianoFlowColors.brandSecondary)
                 }

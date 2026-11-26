@@ -16,6 +16,9 @@ import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import com.pianoflow.app.MainActivity
 import com.pianoflow.app.R
+import com.pianoflow.app.core.datastore.UserPreferencesRepository
+import com.pianoflow.app.core.util.LocaleHelper
+import kotlinx.coroutines.flow.first
 import java.util.concurrent.TimeUnit
 
 class DailyPracticeWorker(
@@ -24,12 +27,13 @@ class DailyPracticeWorker(
 ) : CoroutineWorker(context, workerParams) {
 
     override suspend fun doWork(): Result {
-        showNotification()
+        val lang = UserPreferencesRepository(context).appLanguage.first()
+        showNotification(LocaleHelper.wrapContext(context, lang))
         return Result.success()
     }
 
-    private fun showNotification() {
-        createNotificationChannel()
+    private fun showNotification(localizedContext: Context) {
+        createNotificationChannel(localizedContext)
 
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -43,8 +47,8 @@ class DailyPracticeWorker(
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle(context.getString(R.string.reminder_notification_title))
-            .setContentText(context.getString(R.string.reminder_notification_body))
+            .setContentTitle(localizedContext.getString(R.string.reminder_notification_title))
+            .setContentText(localizedContext.getString(R.string.reminder_notification_body))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
@@ -57,10 +61,10 @@ class DailyPracticeWorker(
         }
     }
 
-    private fun createNotificationChannel() {
+    private fun createNotificationChannel(localizedContext: Context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = context.getString(R.string.notification_channel_name)
-            val descriptionText = "Daily reminders to maintain your piano playing streak"
+            val name = localizedContext.getString(R.string.notification_channel_name)
+            val descriptionText = localizedContext.getString(R.string.notification_channel_desc)
             val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = descriptionText

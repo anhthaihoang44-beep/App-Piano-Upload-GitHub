@@ -179,16 +179,33 @@ private struct PlanCardView: View {
     let onSelect: () -> Void
 
     var body: some View {
+        let localizedTitle: String = {
+            switch plan.id {
+            case "pianoflow_weekly": return L10n.tr("paywall_plan_weekly_title")
+            case "pianoflow_monthly": return L10n.tr("paywall_plan_monthly_title")
+            case "pianoflow_yearly": return L10n.tr("paywall_plan_yearly_title")
+            default: return plan.title
+            }
+        }()
+        let localizedPeriod: String = {
+            switch plan.id {
+            case "pianoflow_weekly": return L10n.tr("paywall_plan_weekly_period")
+            case "pianoflow_monthly": return L10n.tr("paywall_plan_monthly_period")
+            case "pianoflow_yearly": return L10n.tr("paywall_plan_yearly_period")
+            default: return plan.period
+            }
+        }()
+
         Button(action: onSelect) {
             HStack {
                 VStack(alignment: .leading, spacing: 3) {
                     HStack(spacing: 8) {
-                        Text(plan.title)
+                        Text(localizedTitle)
                             .font(.headline.bold())
                             .foregroundColor(.white)
 
                         if plan.isRecommended {
-                            Text("POPULAR")
+                            Text(L10n.tr("paywall_popular_badge"))
                                 .font(.system(size: 9, weight: .bold))
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 6)
@@ -198,7 +215,7 @@ private struct PlanCardView: View {
                         }
                     }
 
-                    Text(plan.period)
+                    Text(localizedPeriod)
                         .font(.caption)
                         .foregroundColor(.gray)
                 }
